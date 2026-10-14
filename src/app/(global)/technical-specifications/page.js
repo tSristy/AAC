@@ -159,12 +159,12 @@ export default function TechnicalSpecificationsPage() {
                             {activeSheet.rows.map((row) => (
                                 <TableRow key={row.parameter} sx={{ '&:last-child td': { borderBottom: 0 } }}>
                                     <TableCell sx={{ borderColor: HAIRLINE }}>
-                                        <Typography sx={{ fontSize: '0.95rem', fontWeight: 500, color: theme.palette.secondary.text }}>
+                                        <Typography sx={{ fontSize: '1.2rem', fontWeight: 500, color: theme.palette.secondary.text }}>
                                             {row.parameter}
                                         </Typography>
                                     </TableCell>
                                     <TableCell sx={{ borderColor: HAIRLINE }}>
-                                        <Typography sx={{ fontSize: '0.95rem', color: theme.palette.primary.main, fontWeight: 500 }}>
+                                        <Typography sx={{ fontSize: '1.2rem', color: theme.palette.primary.main, fontWeight: 500 }}>
                                             {row.value}
                                         </Typography>
                                     </TableCell>

@@ -52,9 +52,9 @@ const productItems = [
 
 const resourceItems = [
     { name: 'Technical Specifications', path: '/technical-specifications' },
-    { name: 'Test Data', path: '/#' },
-    { name: 'Calculator', path: '/#' },
-    { name: 'Brochure', path: '/#' },
+    { name: 'Reports', path: '/reports' },
+    { name: 'Calculator', path: '/calculator' },
+    { name: 'Brochure', path: '/brochure' },
 ];
 
 // Dropdown keys, keyed by nav item name

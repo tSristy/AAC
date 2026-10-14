@@ -136,7 +136,8 @@ export default function AacBlocks() {
             <Box sx={{ py: 5, px: 5 }}>
                 <Grid container spacing={10}>
                     <Grid size={{ xs: 12, sm: 6, md: 5 }}>
-                        <Box sx={{ position: "relative", width: "100%", height: '100%' }}>
+                        <Box sx={{ position: "relative", width: "100%", height: '100%', backgroundImage: `url(${aacBlocksData.hover_img_url})`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}></Box>
+                        {/* <Box sx={{ position: "relative", width: "100%", height: '100%' }}>
                             <Image
                                 src={aacBlocksData.hover_img_url}
                                 alt={aacBlocksData.name}
@@ -144,7 +145,7 @@ export default function AacBlocks() {
                                 sizes="100%"
                                 style={{ objectFit: "cover" }}
                             />
-                        </Box>
+                        </Box> */}
                     </Grid>
 
                     <Grid size={{ xs: 12, sm: 6, md: 7 }}>
