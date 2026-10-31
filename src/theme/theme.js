@@ -24,8 +24,7 @@ const theme = createTheme({
       text: '#201957'
     },
     footer: {
-      newColor: '#063225',
-      testColor: '#05190c',
+      main: '#263B2F',
       light: '#f6f6f6'
     }
   },

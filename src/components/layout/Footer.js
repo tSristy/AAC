@@ -81,7 +81,7 @@ const Footer = () => {
         <Box
             component="footer"
             sx={{
-                bgcolor: theme.palette.footer.newColor,
+                bgcolor: theme.palette.footer.main,
             }}
         >
             <Container
