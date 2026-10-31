@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Box, Button, Container, Divider, Grid, Stack, Typography } from "@mui/material";
 import theme from '@/theme/theme';
 import BannerCarousel from "@/components/ui/BannerCarousel";
+import { useRouter } from "next/navigation";
 
 // Image Imports
 import img1 from '../../public/server/heroB1.png';
@@ -25,42 +26,20 @@ import hc from '../../public/server/hc.png';
 
 import Image from "next/image";
 import NonStopCarousel from "@/components/ui/NonStopCarousel";
-
-// Shared left-to-right "wipe" reveal for the diagonal shade overlays.
-// clip-path is animated (not width) so it still reads correctly once the
-// box is rotated 25deg on sm+ screens.
-//
-// activeSelector: when set (e.g. '.swiper-slide-active'), the shade stays
-// hidden (clip-path fully clipped) until an ancestor matching that selector
-// is present, and only then does the animation run. Swiper adds/removes
-// 'swiper-slide-active' on the current slide itself as slides change, and
-// since it keeps every slide mounted in the DOM (it never remounts them),
-// a mount-triggered animation would only ever fire once on page load.
-// Tying the animation to the class instead means: class added -> animation
-// property newly matches -> browser starts it fresh; class removed -> rule
-// stops applying -> shade snaps back to its hidden base state, ready to
-// wipe in again next time that slide becomes active.
+ 
 const afterBase = {
   content: '""',
   position: "absolute",
   top: { xs: 0, sm: "-50%" },
   left: { xs: 0, sm: "-20%" },
-  width: { xs: "100%", sm: "70%" },
+  width: { xs: "100%", sm: "63%" },
   height: { xs: "100%", sm: "220%" },
   backgroundColor: 'rgba(0, 0, 0, 0.7)',
   transform: { xs: "none", sm: "rotate(25deg)" },
-  clipPath: 'inset(0 100% 0 0)', // hidden until the wipe animation runs
+  clipPath: 'inset(0 100% 0 0)', 
 };
 
-// options.activeSelector: CSS-only trigger, driven by an ancestor class
-//   another library toggles for us (e.g. Swiper's 'swiper-slide-active').
-// options.isActive: JS-driven trigger. Pass a boolean from React state
-//   (e.g. an IntersectionObserver "has scrolled into view" flag). While
-//   false, the shade sits at its hidden base clip-path with no animation
-//   property at all; the moment it flips true, React adds the animation
-//   property to the rendered style, which counts as newly matching, so the
-//   browser plays it from the start - same restart mechanism as the CSS
-//   class trick, just flipped by JS instead of by another library's class.
+
 const shadeOverlaySx = (delay = 0, options = {}) => {
   const { activeSelector = null, isActive = false } = options;
 
@@ -91,13 +70,15 @@ const shadeOverlaySx = (delay = 0, options = {}) => {
 };
 
 export default function Home() {
+  const router = useRouter();
+
   const heroSection = [
     {
       id: 1,
       img: img1,
       title: "High-Quality AAC Blocks for Modern Construction",
       ucp: 'Durable, Lightweight, and Eco-Friendly Building Solutions',
-      buttonOpt: <Button variant="outlined" sx={{
+      buttonOpt: <Button variant="outlined" onClick={() => router.push('/aac-blocks')} sx={{
         borderRadius: 20, borderColor: 'white', color: 'white',
         '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' }
       }}>Know More</Button>
@@ -107,7 +88,7 @@ export default function Home() {
       img: img2,
       title: "Bangladesh’s Trusted AAC BlocksManufacturer",
       ucp: 'Providing Innovative and Sustainable Building Solutions',
-      buttonOpt: <Button variant="outlined" sx={{
+      buttonOpt: <Button variant="outlined" onClick={() => router.push('/contact')} sx={{
         borderRadius: 20, borderColor: 'white', color: 'white',
         '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' }
       }}>Contact Us</Button>
@@ -115,40 +96,40 @@ export default function Home() {
   ];
 
   const [productList] = useState([
-    { id: 1, name: "AAC Blocks", img_url: blockProduct.src, hover_img_url: blockProductHover.src },
-    { id: 2, name: "AAC Panels", img_url: panelProduct.src, hover_img_url: panelProductHover.src },
-    { id: 3, name: "Block-Fix Adhesive", img_url: adhesiveProduct.src, hover_img_url: adhesiveProductHover.src },
-    { id: 4, name: "Power-Mash", img_url: mortarProduct.src, hover_img_url: mortarProductHover.src }
+    { id: 1, name: "AAC Blocks", img_url: blockProduct.src, hover_img_url: blockProductHover.src, url: '/aac-blocks' },
+    { id: 2, name: "AAC Panels", img_url: panelProduct.src, hover_img_url: panelProductHover.src, url: '/aac-panels' },
+    { id: 3, name: "Block-Fix Adhesive", img_url: adhesiveProduct.src, hover_img_url: adhesiveProductHover.src, url: '/block-fix-adhesive' },
+    { id: 4, name: "Power-Mash", img_url: mortarProduct.src, hover_img_url: mortarProductHover.src, url: '/power-mash' }
   ]);
 
   const propsList = [
     {
       id: 1,
-      title: "Tested & Certified Quality",
+      title: "Certified Quality",
       textDescription: "Using high-quality raw materials and advanced technology, ensuring superior strength, durability.",
       icon: props1.src
     },
     {
       id: 2,
-      title: "State-of-the-Art Global Technology",
+      title: "State-of-the-Art Technology",
       textDescription: "Offering excellent thermal insulation, helping to reduce energy consumption and lower heating and cooling costs.",
       icon: props2.src
     },
     {
       id: 3,
-      title: "Exceptional Thermal & Energy Efficiency",
+      title: "Superior Thermal & Energy Efficiency",
       textDescription: "Lightweight and easy to handle, reducing labor costs and construction time  with energy efficiency.",
       icon: props3.src
     },
     {
       id: 4,
-      title: "Sustainable & Eco-Conscious Solutions",
+      title: "Sustainable & Environmentally Responsible",
       textDescription: "Environmentally friendly, made from natural materials, and producing less waste during construction.",
       icon: props4.src
     },
     {
       id: 5,
-      title: "Cost-Optimized, High-Performance Building",
+      title: "Cost-Effective, High-Performance Engineering",
       textDescription: "Offering excellent thermal insulation, helping to reduce energy consumption and lower heating and cooling costs.",
       icon: props5.src
     }
@@ -255,10 +236,10 @@ export default function Home() {
               priority
             />
             <Box sx={shadeOverlaySx(0.15, { activeSelector: '.swiper-slide-active' })} />
-            <Container sx={{ position: 'relative', height: '100%', zIndex: 1 }}>
+            <Container maxWidth="xl" sx={{ position: 'relative', height: '100%', zIndex: 1 }}>
               <Grid container sx={{ height: '100%' }}>
                 <Grid size={{ xs: 12, sm: 6 }} sx={{ height: '100%', display: 'flex', alignItems: 'center' }}>
-                  <Box sx={{ color: 'white' }}>
+                  <Box sx={{ color: 'white', px: { xs: 0, sm: 2, md: 4 } }}>
                     <Typography variant="h3" sx={{ fontWeight: '550' }}>{item.title}</Typography>
                     <Typography variant="h6">{item.ucp}</Typography>
                     <Box sx={{ mt: 2 }}>{item.buttonOpt}</Box>
@@ -292,8 +273,8 @@ export default function Home() {
                 position: 'absolute', top: 0, left: 0, width: '100%', justifyContent: 'space-around', alignItems: 'center',
                 height: '100%', bgcolor: 'rgba(0, 0, 0, 0.4)', color: 'white', p: 2
               }}>
-                <Typography variant='h4' sx={{ fontWeight: '550' }}>{product.name}</Typography>
-                <Button variant='outlined' sx={{ borderRadius: 20, borderColor: 'white', color: 'white' }}>
+                <Typography variant='h4' sx={{ textAlign: 'center', fontWeight: '550' }}>{product.name}</Typography>
+                <Button variant='outlined' onClick={() => router.push(product.url)} sx={{ borderRadius: 20, borderColor: 'white', color: 'white', '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
                   Know more
                 </Button>
               </Stack>
@@ -320,7 +301,7 @@ export default function Home() {
             }
           </Grid>
           <Typography sx={{ mt: 4, color: theme.palette.primary.text, textTransform: 'none', fontSize: '1.1rem', textAlign: 'center' }}>
-            {`By combining strength, lightweight performance, and eco-conscious design, Great Wall AAC Blocks & Panels stands at the forefront of next-generation building materials, shaping the future of construction in Bangladesh.`}
+            {`Combining superior strength, lightweight efficiency, and sustainable engineering, Great Wall AAC Blocks & Panels ensures your project is completed with exceptional quality, accelerated timelines, and optimized costs. Build better, faster, and smarter the intelligent choice for your construction.`}
           </Typography>
         </Container>
       </Box>
@@ -332,20 +313,21 @@ export default function Home() {
           <Grid size={{ xs: 12, md: 6 }}>
             <Box component="img" src={hc.src} alt='Great Wall'
               sx={{
-                p: { sm: 0, md: 5 },
+                // p: { sm: 0, md: 5 },
                 width: '100%',
               }} />
           </Grid>
 
           <Grid size={{ xs: 12, md: 6 }}>
             <Box>
-              <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'center' }}>Who We Are</Typography>
+              <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'left' }}>Who We Are</Typography>
 
-              <Typography sx={{ whiteSpace: 'pre-line', mb: 3, color: theme.palette.primary.text, textTransform: 'none', fontSize: '1.1rem', textAlign: 'justify' }}>{`Great Wall AAC Blocks& Panels is a leading manufacturer of premium Autoclaved Aerated Concrete (AAC) blocks, panels, lentils and counter in Bangladesh. Built on a foundation of innovation, sustainability, and uncompromising quality, we are committed to delivering advanced construction solutions that meet the evolving demands of modern infrastructure.\n
-              Our AAC products are engineered using state-of-the-art technology and rigorously tested by Bangladesh University of Engineering and Technology (BUET), Military Institute of Science and Technology (MIST) and Bangladesh Council of Scientific and Industrial Research (BCSIR) ensuring superior performance, durability, and reliability.`}
+              <Typography sx={{ whiteSpace: 'pre-line', mb: 3, color: theme.palette.primary.text, textTransform: 'none', fontSize: '1.1rem', textAlign: 'justify' }}>{`Great Wall AAC Block & Panels is a leading manufacturer of premium Autoclaved Aerated Concrete (AAC) blocks, panels, lentils and counter in Bangladesh. Built on a foundation of innovation, sustainability, and uncompromising quality, we are committed to delivering advanced construction solutions that meet the evolving demands of modern infrastructure.\n
+              Our AAC products are engineered using state-of-the-art technology and rigorously tested by Bangladesh University of Engineering and Technology (BUET), Military Institute of Science and Technology (MIST) and Bangladesh Council of Scientific and Industrial Research (BCSIR) ensuring superior performance, durability, and reliability.
+              `}
               </Typography>
 
-              <Button variant='outlined' sx={{ borderRadius: 20, borderColor: theme.palette.primary.main, color: theme.palette.primary.main, '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
+              <Button variant='outlined' onClick={() => router.push('/about')} sx={{ borderRadius: 20, borderColor: theme.palette.primary.main, color: theme.palette.primary.main, '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
                 View More
               </Button>
             </Box>
@@ -396,18 +378,18 @@ export default function Home() {
         <Box sx={shadeOverlaySx(0, { isActive: isElectricInView })} />
         <Box sx={{ p: 10, height: '650px', backgroundImage: `url(${bg_e.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <Grid container spacing={4} direction="row"
-          sx={{
-            justifyContent: "space-between", alignItems: "center",
-             position: 'relative', zIndex: 1,
+            sx={{
+              justifyContent: "space-between", alignItems: "center",
+              position: 'relative', zIndex: 1,
             }}>
             <Grid size={{ xs: 12, md: 6 }}>
               <Box>
-                <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.main, fontWeight: '550', textAlign: 'left' }}>AAC Blocks saves up to 30% on electricity cost</Typography>
+                <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.main, fontWeight: '550', textAlign: 'left' }}>AAC BLOCKS SAVES UPTO 30% ON ELECTRICITY COST</Typography>
 
-                <Typography sx={{ whiteSpace: 'pre-line', mb: 3, color: theme.palette.secondary.main, textTransform: 'none', fontSize: '1.1rem', textAlign: 'justify' }}>{`Great Wall AAC Blocks& Panels is a leading manufacturer of premium Autoclaved Aerated Concrete (AAC) blocks, panels, lentils and counter in Bangladesh. Built on a foundation of innovation, sustainability, and uncompromising quality, we are committed to delivering advanced construction solutions that meet the evolving demands of modern infrastructure.`}
+                <Typography sx={{ whiteSpace: 'pre-line', mb: 3, color: theme.palette.secondary.main, textTransform: 'none', fontSize: '1.1rem', textAlign: 'justify' }}>{`In modern construction, energy efficiency is no longer optional—it is a core requirement for sustainable, cost-effective buildings. Autoclaved Aerated Concrete (AAC) blocks offer a revolutionary approach to thermal insulation, helping property owners achieve significant, long-term savings on electricity bills.`}
                 </Typography>
 
-                <Button variant='outlined' sx={{ borderRadius: 20, borderColor: theme.palette.primary.main, color: theme.palette.primary.main, '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
+                <Button variant='outlined' onClick={() => router.push('/aac-blocks#electric')} sx={{ borderRadius: 20, borderColor: theme.palette.secondary.main, color: theme.palette.secondary.main, '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
                   View More
                 </Button>
               </Box>
@@ -467,7 +449,7 @@ export default function Home() {
         </Grid>
 
         <Box sx={{ pt: 5, display: 'flex', justifyContent: 'center' }}>
-          <Button variant='outlined' sx={{ borderRadius: 20, borderColor: theme.palette.primary.main, color: theme.palette.primary.main, '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
+          <Button variant='outlined' onClick={() => router.push('/testimonials')} sx={{ borderRadius: 20, borderColor: theme.palette.primary.main, color: theme.palette.primary.main, '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
             View More
           </Button>
         </Box>
@@ -499,7 +481,9 @@ export default function Home() {
 
                   <Typography sx={{ mt: 2, fontSize: '0.9rem', color: '#666' }}>{event.date} | {event.location}</Typography>
                   <Typography variant='h6' sx={{ color: theme.palette.primary.text, fontWeight: '600' }}>{event.title}</Typography>
-                  <Typography sx={{ cursor: 'pointer', fontSize: '1.1rem', mt: 2, color: theme.palette.primary.main }}>Read more</Typography>
+                  <Typography sx={{ cursor: 'pointer', fontSize: '1.1rem', mt: 2, color: theme.palette.primary.main }} onClick={() => router.push(`/events/${event.id}`)}>
+                    Read more
+                  </Typography>
                 </Box>
               </Grid>
 
@@ -507,7 +491,7 @@ export default function Home() {
         </Grid>
 
         <Box sx={{ pt: 5, display: 'flex', justifyContent: 'center' }}>
-          <Button variant='outlined' sx={{ borderRadius: 20, borderColor: theme.palette.primary.main, color: theme.palette.primary.main, '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
+          <Button variant='outlined' onClick={() => router.push('/events')} sx={{ borderRadius: 20, borderColor: theme.palette.primary.main, color: theme.palette.primary.main, '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
             View More
           </Button>
         </Box>

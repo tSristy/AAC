@@ -24,11 +24,11 @@ export default function ContactPage() {
                 <Stack direction="row" sx={{ my: 4, justifyContent: 'space-between' }}>
                   <Box>
                     <Typography sx={{ fontSize: '1rem' }}>Please reach us at</Typography>
-                    <Typography sx={{ fontWeight: 600 }}>info@charuceramic.com</Typography>
+                    <Typography sx={{ fontWeight: 600 }}>info@greatwallaacblocks.com</Typography>
                   </Box>
                   <Box>
                     <Typography sx={{ textAlign: "right", fontWeight: 600 }}>Phone</Typography>
-                    <Typography sx={{ textAlign: "right", fontSize: '1rem' }}>+880 1700 706 600</Typography>
+                    <Typography sx={{ textAlign: "right", fontSize: '1rem' }}>+880 1335 118 773</Typography>
                   </Box>
                 </Stack>
 
@@ -42,7 +42,7 @@ export default function ContactPage() {
                   </Box>
                   <Box>
                     <Typography sx={{ textAlign: 'right', fontWeight: 600 }}>Factory</Typography>
-                    <Typography sx={{ textAlign: 'right', fontSize: '1rem' }}>Madhabpur, Habiganj, Sylhet, Bangladesh</Typography>
+                    <Typography sx={{ textAlign: 'right', fontSize: '1rem' }}>Kholapara, Kaliganj, Gazipur, Bangladesh</Typography>
                   </Box>
                 </Stack>
               </Box>

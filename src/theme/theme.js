@@ -22,6 +22,11 @@ const theme = createTheme({
       main: '#f6f6f6',
       light: '#969696',
       text: '#201957'
+    },
+    footer: {
+      newColor: '#063225',
+      testColor: '#05190c',
+      light: '#f6f6f6'
     }
   },
 });

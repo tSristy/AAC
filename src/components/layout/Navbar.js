@@ -143,17 +143,17 @@ export default function Navbar() {
                                             sx={{
                                                 position: 'absolute',
                                                 top: '100%',
-                                                left: '50%',
-                                                transform: isOpen
-                                                    ? 'translateX(-50%) translateY(0)'
-                                                    : 'translateX(-50%) translateY(8px)',
-                                                minWidth: 340,
-                                                maxWidth: 480,
+                                                left: '0%',
+                                                // transform: isOpen
+                                                //     ? 'translateX(-50%) translateY(0)'
+                                                //     : 'translateX(-50%) translateY(8px)',
+                                                // minWidth: 340,
+                                                maxWidth: item.name === 'Products' ? 400 : 250 ,
                                                 width: 'max-content',
                                                 bgcolor: 'white',
                                                 boxShadow: 3,
                                                 borderRadius: 1,
-                                                p: 2,
+                                                // p: 2,
                                                 zIndex: 10,
                                                 opacity: isOpen ? 1 : 0,
                                                 visibility: isOpen ? 'visible' : 'hidden',
@@ -172,9 +172,10 @@ export default function Navbar() {
                                                                     display: 'flex',
                                                                     flexDirection: 'column',
                                                                     alignItems: sub.img_url ? 'center' : 'flex-start',
-                                                                    gap: 2,
-                                                                    p: 1,
+                                                                    // gap: 2,
+                                                                    py: 1,
                                                                     borderRadius: 1,
+                                                                    px: sub.img_url ? 1 : 2,
                                                                     textDecoration: 'none',
                                                                     color: theme.palette.text.primary,
                                                                     '&:hover': { bgcolor: '#f5f5f5' },
@@ -203,7 +204,8 @@ export default function Navbar() {
                             // Default rendering for plain links (Home, About, Contact)
                             return (
                                 <Box key={item.name} component={Link} href={item.path} sx={{ mx: 2, textDecoration: 'none' }}>
-                                    <Typography sx={{ color: isSelected ? theme.palette.secondary.text : navTextColor, fontWeight: isSelected ? 600 : 450, textTransform: 'uppercase', '&:hover': { color: theme.palette.primary.main } }}>
+                                    <Typography sx={{ color: navTextColor, fontWeight: isSelected ? 600 : 450, textTransform: 'uppercase', '&:hover': { color: theme.palette.primary.main } }}>
+                                    {/* <Typography sx={{ color: isSelected ? theme.palette.secondary.text : navTextColor, fontWeight: isSelected ? 600 : 450, textTransform: 'uppercase', '&:hover': { color: theme.palette.primary.main } }}> */}
                                         {item.name}
                                     </Typography>
                                 </Box>

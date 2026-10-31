@@ -1,15 +1,14 @@
 'use client';
 import { useState } from "react";
-import { Box, Container, Grid, Stack, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
+import { Box, Container, TableContainer, Grid, Stack, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
 import theme from '@/theme/theme';
 
-import blockProduct from '../../../../public/server/mortar.png';
-import blockProductHover from '../../../../public/server/mortarHover.png';
+import blockProduct from '../../../../public/server/pMash.png';
 
-import icon1 from '../../../../public/server/blockIcon/icon1.png';
-import icon2 from '../../../../public/server/blockIcon/icon2.png';
-import icon3 from '../../../../public/server/blockIcon/icon3.png';
-import icon4 from '../../../../public/server/blockIcon/icon4.png';
+import icon1 from '../../../../public/server/mashIcon/icon1.png';
+import icon2 from '../../../../public/server/mashIcon/icon2.png';
+import icon3 from '../../../../public/server/mashIcon/icon3.png';
+import icon4 from '../../../../public/server/mashIcon/icon4.png';
 
 export default function PowerMesh() {
 
@@ -18,8 +17,7 @@ export default function PowerMesh() {
     const powerMeshData = {
         id: 1,
         name: "Great Wall Power Mesh",
-        img_url: blockProduct.src,
-        hover_img_url: blockProductHover.src
+        img_url: blockProduct.src
     };
 
     const powerMeshFeatures = [
@@ -64,7 +62,7 @@ export default function PowerMesh() {
             <Box sx={{ py: 5, px: 5 }}>
                 <Grid container spacing={10}>
                     <Grid size={{ xs: 12, sm: 6, md: 5 }}>
-                        <Box sx={{ position: "relative", width: "100%", height: '100%', backgroundImage: `url(${powerMeshData.hover_img_url})`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}></Box>
+                        <Box sx={{ position: "relative", width: "100%", height: '100%', backgroundImage: `url(${powerMeshData.img_url})`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}></Box>
                     </Grid>
 
                     <Grid size={{ xs: 12, sm: 6, md: 7 }}>
@@ -72,22 +70,22 @@ export default function PowerMesh() {
                         <Typography sx={{ fontSize: '1.5rem', mb: 3, color: theme.palette.primary.text, fontWeight: '450' }}>Invisible Structural Reinforcement & Crack Protection</Typography>
 
                         <Typography sx={{ fontSize: '1.1rem', mb: 3, color: theme.palette.primary.text, textAlign: 'justify', whiteSpace: 'pre-line', fontWeight: '400' }}>
-                            {`Great Wall Power Mesh delivers invisible structural strength that protects your walls against cracks, vibrations, and structural shifts. By distributing mechanical loads evenly across masonry joints, it ensures your building remains flawless for generations.\n
-To enhance structural durability in your AAC wall construction, Power Mesh is your go-to reinforcement solution.`}
+                            {`Great Wall Power Mesh delivers invisible structural strength that protects your walls against cracks, vibrations, and structural shifts. By distributing mechanical loads evenly across masonry joints, it ensures your building remains flawless for generations.`}
                         </Typography>
 
                         <Typography sx={{ fontSize: '1.1rem', mb: 3, color: theme.palette.primary.text, whiteSpace: 'pre-line', fontWeight: '400' }}>
                             <Box component="span" sx={{ fontWeight: '500' }}>Suited For:</Box>
-                            {` AAC Blocks, Clay Bricks, Concrete Masonry, Internal Partition Walls`}
+                            {` AAC Blocks, Clay Bricks, Concrete Masonry & Internal Partition Walls`}
                         </Typography>
 
                         <Typography sx={{ fontSize: '1.1rem', mb: 3, color: theme.palette.primary.text, whiteSpace: 'pre-line', fontWeight: '400' }}>
-                            <Box component="span" sx={{ fontWeight: '500' }}>Application Areas:</Box>
-                            {` \n• AAC Block Masonry – Reinforce horizontal bed joints between block layers
-• Openings – Around windows, doors, and other wall cutouts to prevent cracking
-• Wall-to-Column Joints – Ensures stable connection between dissimilar materials
-• Beams & Lintels – Adds structural strength above door and window spans
-• Partition Walls – Keeps lightweight walls strong and impact-resistant`}
+                            <Box component="span" sx={{ fontWeight: '500', mb: 2 }}>Application Areas:</Box>
+                            {`\n•	AAC Block Masonry – Reinforce horizontal bed joints between block layers
+•	Openings – Around windows, doors, and other wall cutouts to prevent cracking
+•	Wall-to-Column Joints – Ensures stable connection between dissimilar materials
+•	Beams & Lintels – Adds structural strength above door and window spans
+•	Partition Walls – Keeps lightweight walls strong and impact-resistant
+`}
                         </Typography>
                     </Grid>
                 </Grid>
@@ -138,31 +136,150 @@ To enhance structural durability in your AAC wall construction, Power Mesh is yo
                 </Grid>
             </Box>
 
-            {/* Technical Specification Table */}
-            <Box sx={{ py: 5, px: 10, bgcolor: theme.palette.secondary.main }}>
-                <Typography variant='h3' sx={{ mb: 5, color: theme.palette.secondary.text, textAlign: 'center', fontWeight: '550' }}>Technical Specification</Typography>
+            
+{/* Technical Specification Table */}
+<Box
+    sx={{
+        py: { xs: 4, md: 5 },
+        px: { xs: 2, sm: 3, md: 10 },
+        bgcolor: theme.palette.secondary.main
+    }}
+>
+    <Typography
+        variant="h3"
+        sx={{
+            mb: 5,
+            color: theme.palette.secondary.text,
+            textAlign: 'center',
+            fontWeight: 550,
+            fontSize: { xs: '1.8rem', sm: '2.2rem', md: '3rem' }
+        }}
+    >
+        Technical Specification
+    </Typography>
 
-                <Box sx={{ backgroundColor: 'white', p: 3, borderRadius: 2, boxShadow: 3 }}>
-                    <Box sx={{ border: `1px solid ${theme.palette.divider}`, borderRadius: 2 }}>
-                        <Table aria-label="technical-specification-table" sx={{ minWidth: 650, overflowX: 'auto' }}>
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell align="left" width={'30%'}><Typography variant='h6'>PARAMETERS</Typography></TableCell>
-                                    <TableCell align="left"><Typography variant='h6'>SPECIFICATIONS</Typography></TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {technicalSpecs.map((spec) => (
-                                    <TableRow key={spec.id}>
-                                        <TableCell align="left"><Typography sx={{ fontSize: '1.2rem', fontWeight: '450' }}>{spec.parameter}</Typography></TableCell>
-                                        <TableCell align="left"><Typography sx={{ fontSize: '1.2rem', fontWeight: '450', color: theme.palette.secondary.light }}>{spec.value}</Typography></TableCell>
-                                    </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </Box>
-                </Box>
-            </Box>
+    <Container maxWidth="lg">
+        <Box
+            sx={{
+                backgroundColor: 'white',
+                p: { xs: 1.5, sm: 3, md: 5 },
+                borderRadius: 2,
+                boxShadow: 3
+            }}
+        >
+            <TableContainer
+                sx={{
+                    border: `1px solid ${theme.palette.divider}`,
+                    borderRadius: 2,
+                    overflowX: 'auto'
+                }}
+            >
+                <Table
+                    aria-label="technical-specification-table"
+                    sx={{
+                        minWidth: { xs: 450, sm: 550 },
+                        width: '100%'
+                    }}
+                >
+                    <TableHead>
+                        <TableRow
+                            sx={{
+                                bgcolor: theme.palette.action.hover
+                            }}
+                        >
+                            <TableCell align="left" sx={{ width: '50%' }}>
+                                <Typography
+                                    sx={{
+                                        fontWeight: 700,
+                                        fontSize: {
+                                            xs: '0.85rem',
+                                            sm: '1.1rem'
+                                        }
+                                    }}
+                                >
+                                    PARAMETERS
+                                </Typography>
+                            </TableCell>
+
+                            <TableCell align="left">
+                                <Typography
+                                    sx={{
+                                        fontWeight: 700,
+                                        fontSize: {
+                                            xs: '0.85rem',
+                                            sm: '1.1rem'
+                                        }
+                                    }}
+                                >
+                                    SPECIFICATIONS
+                                </Typography>
+                            </TableCell>
+                        </TableRow>
+                    </TableHead>
+
+                    <TableBody>
+                        {technicalSpecs.map((spec) => (
+                            <TableRow
+                                key={spec.id}
+                                sx={{
+                                    '&:last-child td': {
+                                        borderBottom: 0
+                                    },
+                                    '&:hover': {
+                                        bgcolor: theme.palette.action.hover
+                                    }
+                                }}
+                            >
+                                <TableCell
+                                    align="left"
+                                    sx={{
+                                        py: { xs: 1.5, sm: 2 }
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: {
+                                                xs: '0.85rem',
+                                                sm: '1rem',
+                                                md: '1.2rem'
+                                            },
+                                            fontWeight: 450
+                                        }}
+                                    >
+                                        {spec.parameter}
+                                    </Typography>
+                                </TableCell>
+
+                                <TableCell
+                                    align="left"
+                                    sx={{
+                                        py: { xs: 1.5, sm: 2 }
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontSize: {
+                                                xs: '0.85rem',
+                                                sm: '1rem',
+                                                md: '1.2rem'
+                                            },
+                                            fontWeight: 450,
+                                            color: theme.palette.secondary.light,
+                                            overflowWrap: 'anywhere'
+                                        }}
+                                    >
+                                        {spec.value}
+                                    </Typography>
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </Box>
+    </Container>
+</Box>
+
         </Box>
     );
 }

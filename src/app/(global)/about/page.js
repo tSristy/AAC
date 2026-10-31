@@ -17,15 +17,21 @@ import VerifiedIcon from '@mui/icons-material/Verified';
 import ScienceIcon from '@mui/icons-material/Science';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PublicIcon from '@mui/icons-material/Public';
-import GroupsIcon from '@mui/icons-material/Groups';
 
 import img1 from '../../../../public/server/heroB1.png';
 
+import imgBlock from '../../../../public/server/aboutIcon/Blocks.png';
+import imgCharu from '../../../../public/server/aboutIcon/Charu.png';
+import imgGW from '../../../../public/server/aboutIcon/GW.png';
+import imgHiTech from '../../../../public/server/aboutIcon/Hitech.png';
+import imgShips from '../../../../public/server/aboutIcon/Ships.png';
+
+
 const quickFacts = [
-  { icon: <LocationOnIcon fontSize="small" />, label: 'Plant location', value: 'Kholapara, Kaliganj, Gazipur' },
-  { icon: <PrecisionManufacturingIcon fontSize="small" />, label: 'Annual capacity', value: '~220,000 CBM' },
-  { icon: <ScienceIcon fontSize="small" />, label: 'Product engineering', value: 'Swedish-designed, Chinese technology' },
-  { icon: <VerifiedIcon fontSize="small" />, label: 'Standards followed', value: 'ASTM International' },
+  { icon: <LocationOnIcon fontSize="medium" />, label: 'Plant location', value: 'Kholapara, Kaliganj, Gazipur' },
+  { icon: <PrecisionManufacturingIcon fontSize="medium" />, label: 'Annual capacity', value: '~220,000 CBM' },
+  { icon: <ScienceIcon fontSize="medium" />, label: 'Product engineering', value: 'Swedish-innovation, Chinese technology' },
+  { icon: <VerifiedIcon fontSize="medium" />, label: 'Standards followed', value: 'ASTM International' },
 ];
 
 const journeyMilestones = [
@@ -64,54 +70,44 @@ const highlights = [
 
 const groupCompanies = [
   {
-    name: 'Great Wall Ceramic Industries Ltd (2006)',
-    description:
-      'The flagship of our group and one of the largest tile manufacturers in Bangladesh, known for Italian and Spanish technology.',
+    id: 1,
+    icon: imgGW.src,
+    name: "Great Wall Ceramic Industries Ltd.",
+    description: "Established in 2006, Great Wall Ceramic Industries Ltd. is the flagship company of the group and one of the largest tile manufacturers in Bangladesh. Known for world-class quality and advanced Italian and Spanish technology, the company has been redefining the aesthetics of Bangladeshi homes for nearly two decades."
   },
   {
-    name: 'Charu Ceramic (2012)',
-    description:
-      'Premium sanitary ware brand, produced in technical collaboration with COTTO (Thailand).',
+    id: 2,
+    icon: imgCharu.src,
+    name: "Charu Ceramic Ind. Ltd.",
+    description: "Established in 2012, Charu Ceramic Ind. Ltd. is a contemporary premium brand in Bangladesh's sanitary ware industry. Through technical collaboration with COTTO, Thailand, the company manufactures high-end sanitary ware and fittings that combine international standards, luxury, quality, and durability."
   },
   {
-    name: 'Great Wall Steel Building Industries',
-    description:
-      'End-to-end Pre-Engineered Building (PEB) solutions - design, manufacturing and installation of industrial warehouses, factories and commercial high-rises.',
+    id: 3,
+    icon: imgBlock.src,
+    name: "Great Wall Steel Building Ind. Ltd.",
+    description: "Great Wall Steel Building Ind. Ltd. is a leading provider of Pre-Engineered Building (PEB) solutions in Bangladesh. The company offers end-to-end steel building services, including design, manufacturing, and installation of industrial warehouses, factories, and commercial high-rise structures."
   },
   {
-    name: 'Great Wall Ships & Dredgers',
-    description:
-      'Marine logistics support, dredging and ship support operations for the development of Bangladesh\u2019s waterways.',
+    id: 4,
+    icon: imgShips.src,
+    name: "Great Wall Ships & Dredgers Ltd.",
+    description: "Great Wall Ships & Dredgers Ltd. operates in the maritime and infrastructure sector, specializing in marine logistics support, dredging services, and ship support operations. The company contributes to the development of Bangladesh's waterways and maritime logistics infrastructure."
   },
   {
-    name: 'Great Wall Hi-Tech Ltd',
-    description:
-      'Fast-growing energy solutions manufacturer producing high-performance batteries for automotive, solar, IPS and EV applications.',
+    id: 5,
+    icon: imgHiTech.src,
+    name: "Great Wall Hi-Tech Ind. Ltd.",
+    description: "Great Wall Hi-Tech Industries Limited is an innovative and fast-growing manufacturer in Bangladesh's energy solutions sector. The company produces high-performance batteries for various applications, including automotive, solar power systems, IPS (inverter power systems), and electric vehicles (EVs)."
   },
   {
-    name: 'Great Wall Printing & Packaging Industries Ltd',
-    description:
-      'Fully automated manufacturing of cartons and packaging materials, serving both group companies and external clients.',
-  },
+    id: 6,
+    icon: imgGW.src,
+    name: "Great Wall Printing & Packaging Ind. Limited",
+    description: "Great Wall Printing & Packaging Industries Limited is a Bangladesh-based printing and packaging manufacturer specializing in cartons and packaging materials. The company utilizes fully automated and advanced machinery to deliver modern manufacturing and packaging solutions."
+  }
 ];
 
-const leadership = [
-  {
-    name: 'Sourabh Bansal',
-    designation: 'Managing Director',
-    bio: 'IIT alumnus guiding enterprise scaling, long-term manufacturing infrastructure layout, and core strategic development.',
-  },
-  {
-    name: 'Puneet Mittal',
-    designation: 'Executive Director',
-    bio: 'Directing financial planning, regulatory compliance, corporate structuring, and institutional investments.',
-  },
-  {
-    name: 'Sidharth Bansal',
-    designation: 'Executive Director',
-    bio: 'Overseeing operational workflows, supply chain integrity, and technical quality standards across plant networks.',
-  },
-];
+
 
 // Shared "flat card" look used everywhere instead of shadow-heavy MUI Cards:
 // a hairline border, no radius theatrics, no shadow, no hover lift. Only the
@@ -122,15 +118,14 @@ const flatCardSx = {
   p: 3,
   height: '100%',
   transition: 'border-color 0.2s ease',
-  '&:hover': { borderColor: theme.palette.primary.main },
+  '&:hover': {
+    // borderColor: theme.palette.primary.main,
+    cursor: 'pointer',
+    boxShadow: 6,
+    transition: 'box-shadow 0.3s ease-in-out',
+  }
 };
 
-const sectionTitleSx = {
-  fontWeight: 600,
-  color: theme.palette.secondary.text,
-  mb: 1,
-  fontSize: { xs: '1.5rem', md: '1.85rem' },
-};
 
 export default function AboutPage() {
   return (
@@ -150,41 +145,39 @@ export default function AboutPage() {
         }}
       >
         <Container sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'center' }}>
-          <Typography variant="h2" sx={{ fontWeight: 600, fontSize: { xs: '1.9rem', md: '2.6rem' }, mb: 2 }}>
+          <Typography variant="h3" sx={{ fontWeight: '550' }}>
             Bangladesh&rsquo;s Trusted AAC Blocks Manufacturer
           </Typography>
-          <Typography sx={{ color: '#e5e3e0', fontWeight: 400, lineHeight: 1.7 }}>
+          <Typography variant="h6" sx={{ mt: 2, textAlign: 'center', maxWidth: 600 }}>
             Delivering durable, lightweight and eco-friendly building solutions, backed by nearly two decades of manufacturing heritage.
           </Typography>
         </Container>
       </Box>
 
       {/* Who We Are */}
-      <Container maxWidth="lg" sx={{ py: { xs: 7, md: 10 } }}>
-        <Grid container spacing={6}>
-          <Grid size={{ xs: 12, md: 7 }}>
-            <Typography variant="h3" sx={sectionTitleSx}>
-              Who We Are
-            </Typography>
+      <Container maxWidth="xl" sx={{ py: { xs: 7, md: 10 } }}>
+        <Box sx={{ px: { sm: 0, md: 2, lg: 4 } }}>
+          <Grid container spacing={6}>
+            <Grid size={{ xs: 12, md: 8 }}>
+              <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550' }}>
+                Who We Are
+              </Typography>
             <Divider sx={{ width: 40, borderColor: theme.palette.primary.main, borderBottomWidth: 2, mb: 3 }} />
             <Stack spacing={2}>
-              <Typography sx={{ color: '#57534e', lineHeight: 1.75, textAlign: 'justify' }}>
-                Great Wall AAC Block & Panels is a leading manufacturer of premium Autoclaved Aerated Concrete (AAC) blocks, panels, lentils and counter in Bangladesh. Built on a foundation of innovation, sustainability, and uncompromising quality, we are committed to delivering advanced construction solutions that meet the evolving demands of modern infrastructure.
-              </Typography>
-              <Typography sx={{ color: '#57534e', lineHeight: 1.75, textAlign: 'justify' }}>
-                Our AAC products are engineered using state-of-the-art technology and rigorously tested by the Bangladesh University of Engineering and Technology (BUET), Military Institute of Science and Technology (MIST) and Bangladesh Council of Scientific and Industrial Research (BCSIR), ensuring superior performance, durability, and reliability.
-              </Typography>
-              <Typography sx={{ color: '#57534e', lineHeight: 1.75, textAlign: 'justify' }}>
-                Designed for efficiency, our blocks offer excellent thermal insulation, reduced structural load, and enhanced environmental sustainability - helping developers optimize both construction costs and long-term value.
+              <Typography sx={{ color: theme.palette.text.primary, textAlign: 'justify', whiteSpace: 'pre-line', fontSize: '1.1rem' }}>
+                {`Great Wall AAC Block & Panels is a leading manufacturer of premium Autoclaved Aerated Concrete (AAC) blocks, panels, lentils and counter in Bangladesh. Built on a foundation of innovation, sustainability, and uncompromising quality, we are committed to delivering advanced construction solutions that meet the evolving demands of modern infrastructure.\n                
+                Our AAC products are engineered using state-of-the-art technology and rigorously tested by Bangladesh University of Engineering and Technology (BUET), Military Institute of Science and Technology (MIST) and Bangladesh Council of Scientific and Industrial Research (BCSIR) ensuring superior performance, durability, and reliability. Designed for efficiency, Great Wall AAC blocks offer excellent thermal insulation, reduced structural load, and enhanced environmental sustainability—helping developers optimize both construction costs and long-term value.\n
+                By combining strength, lightweight performance, and eco-conscious design, Great Wall AAC Block & Panels stands at the forefront of next-generation building materials, shaping the future of construction in Bangladesh.
+                `}
               </Typography>
             </Stack>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 5 }}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Box sx={{ borderLeft: '2px solid', borderTopRightRadius: 8, borderBottomRightRadius: 8, borderColor: theme.palette.primary.main, p: 3, 
               // backgroundColor: '#f9f9f9', 
               height: '100%' }}>
-              <Typography sx={{ fontSize: '0.75rem', fontWeight: 600, color: theme.palette.secondary.light, textTransform: 'uppercase', letterSpacing: '0.5px', mb: 2.5 }}>
+              <Typography variant='h6' sx={{ mb: 3, color: theme.palette.secondary.light, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 Quick Facts
               </Typography>
               <Stack spacing={2.5}>
@@ -192,39 +185,44 @@ export default function AboutPage() {
                   <Stack key={fact.label} direction="row" spacing={1.5} sx={{ alignItems: 'center' }}>
                     <Box sx={{ color: theme.palette.primary.main, mt: 0.2 }}>{fact.icon}</Box>
                     <Box>
-                      <Typography sx={{ fontSize: '0.8rem', color: theme.palette.secondary.light }}>{fact.label}</Typography>
-                      <Typography sx={{ color: theme.palette.secondary.text, fontWeight: 500 }}>{fact.value}</Typography>
+                      <Typography sx={{ fontSize: '0.9rem', color: theme.palette.secondary.light }}>{fact.label}</Typography>
+                      <Typography sx={{ fontSize: '1.1rem', color: theme.palette.secondary.text, fontWeight: 500 }}>{fact.value}</Typography>
                     </Box>
                   </Stack>
                 ))}
               </Stack>
             </Box>
           </Grid>
-        </Grid>
+          </Grid>
+        </Box>
       </Container>
 
       {/* Vision & Mission */}
-      <Container>
-        <Grid container spacing={3} sx={{ mb: 9 }}>
+      <Container maxWidth="xl" sx={{ px: { xs: 7, md: 10 } }}>
+        <Grid container spacing={3} sx={{ mb: 9, alignItems: 'stretch', px: { xs: 2, md: 0 } }}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={flatCardSx}>
+              <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center', mb: 1 }}>
               <PublicIcon sx={{ fontSize: '1.6rem', color: theme.palette.primary.main, mb: 1.5 }} />
               <Typography variant="h6" sx={{ fontWeight: 600, color: theme.palette.secondary.text, mb: 1 }}>
                 Vision
               </Typography>
-              <Typography sx={{ color: '#57534e', lineHeight: 1.75 }}>
+              </Stack>
+              <Typography sx={{ color: theme.palette.text.primary, fontSize: '1.1rem' }}>
                 To revolutionize the construction industry in Bangladesh by delivering world-class AAC solutions that enable sustainable, smart, and cost-efficient buildings for generations to come.
               </Typography>
             </Box>
           </Grid>
           <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={flatCardSx}>
-              <FoundationIcon sx={{ fontSize: '1.6rem', color: theme.palette.primary.main, mb: 1.5 }} />
-              <Typography variant="h6" sx={{ fontWeight: 600, color: theme.palette.secondary.text, mb: 1 }}>
-                Mission
-              </Typography>
-              <Typography sx={{ color: '#57534e', lineHeight: 1.75 }}>
-                To deliver high-quality AAC blocks and panels that combine durability, efficiency, and eco-friendliness - empowering builders, architects, and homeowners with solutions that make construction faster, safer, and more cost-effective.
+              <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center', mb: 1 }}>
+                <FoundationIcon sx={{ fontSize: '1.6rem', color: theme.palette.primary.main, mb: 1.5 }} />
+                <Typography variant='h6' sx={{ color: theme.palette.primary.text, mb: 1 }}>
+                  Mission
+                </Typography>
+              </Stack>
+              <Typography sx={{ color: '#57534e', fontSize: '1.1rem' }}>
+                To manufacture world-class AAC blocks and panels that merge structural strength with environmental responsibility—equipping developers, architects, and homeowners with solutions that accelerate construction, lower total costs, and elevate building standards.
               </Typography>
             </Box>
           </Grid>
@@ -249,7 +247,7 @@ export default function AboutPage() {
                 <Typography sx={{ fontWeight: 600, color: theme.palette.secondary.main, fontSize: '1.4rem', mb: 0.5 }}>
                   {item.stat}
                 </Typography>
-                <Typography sx={{ fontSize: '0.85rem', color: theme.palette.secondary.main, lineHeight: 1.5 }}>{item.label}</Typography>
+                <Typography sx={{ fontSize: '0.9rem', color: theme.palette.secondary.main, lineHeight: 1.5 }}>{item.label}</Typography>
               </Box>
             </Grid>
           ))}
@@ -260,10 +258,10 @@ export default function AboutPage() {
       {/* Our Journey */}
       <Container maxWidth="lg" sx={{ mb: 9 }}>
         <Box>
-          <Typography variant="h3" sx={{ ...sectionTitleSx, textAlign: 'center' }}>
+          <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'center' }}>
             Our Journey
           </Typography>
-          <Typography sx={{ color: theme.palette.secondary.light, textAlign: 'center', mb: 6 }}>
+          <Typography variant='h6' sx={{ mb: 3, color: theme.palette.primary.text, textAlign: 'center', mb: 6 }}>
             From ceramics to AAC blocks - the milestones behind the Great Wall group.
           </Typography>
 
@@ -272,7 +270,7 @@ export default function AboutPage() {
               <Box key={milestone.title} sx={{ display: 'flex', gap: 3 }}>
                 {/* Year rail */}
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 84, flexShrink: 0 }}>
-                  <Typography sx={{ fontWeight: 600, color: theme.palette.primary.main, fontSize: '0.9rem' }}>
+                  <Typography sx={{ fontWeight: 600, color: theme.palette.primary.main, fontSize: '1.1rem' }}>
                     {milestone.year}
                   </Typography>
                   <Box
@@ -286,16 +284,16 @@ export default function AboutPage() {
                     }}
                   />
                   {index < journeyMilestones.length - 1 && (
-                    <Box sx={{ width: '1px', flexGrow: 1, bgcolor: '#e5e3e0', minHeight: 40 }} />
+                    <Box sx={{ width: '1px', flexGrow: 1, bgcolor: '#e5e3e0' }} />
                   )}
                 </Box>
 
                 {/* Content */}
                 <Box sx={{ pb: 4 }}>
-                  <Typography sx={{ fontWeight: 600, color: theme.palette.secondary.text, mb: 0.5 }}>
+                  <Typography sx={{ fontSize: '1.1rem', fontWeight: 550, color: theme.palette.secondary.text, mb: 0.5 }}>
                     {milestone.title}
                   </Typography>
-                  <Typography sx={{ color: '#57534e', lineHeight: 1.75, fontSize: '0.95rem' }}>
+                  <Typography sx={{ color: theme.palette.secondary.light, fontSize: '1.1rem' }}>
                     {milestone.description}
                   </Typography>
                 </Box>
@@ -306,22 +304,25 @@ export default function AboutPage() {
       </Container>
 
       {/* Our Industrial Footprint */}
-      <Container maxWidth="lg" sx={{ mb: 9 }}>
+      <Container maxWidth="xl" sx={{ mb: 9, px: { xs: 7, md: 10 } }}>
       <Box sx={{ mb: 9 }}>
-        <Typography variant="h3" sx={{ ...sectionTitleSx, textAlign: 'center' }}>
+        <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'center' }}>
           Our Industrial Footprint
         </Typography>
-        <Typography sx={{ color: theme.palette.secondary.light, textAlign: 'center', maxWidth: 620, mx: 'auto', mb: 6 }}>
+        <Typography variant='h6' sx={{ mb: 3, color: theme.palette.primary.text, textAlign: 'center', mb: 6 }}>
           Great Wall AAC Block & Panels is backed by the collective strength and heritage of our diverse ventures.
         </Typography>
         <Grid container spacing={3}>
           {groupCompanies.map((company) => (
             <Grid size={{ xs: 12, md: 6, lg: 4 }} key={company.name}>
               <Box sx={flatCardSx}>
-                <Typography sx={{ fontWeight: 600, color: theme.palette.secondary.text, mb: 1 }}>
-                  {company.name}
-                </Typography>
-                <Typography sx={{ fontSize: '0.9rem', color: '#57534e', lineHeight: 1.75 }}>
+                <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center', mb: 1 }}>
+                  <Box component="img" src={company.icon} alt={company.name} sx={{ width: 32, height: 32 }} />
+                  <Typography variant="h6" sx={{ fontWeight: 500, color: theme.palette.primary.text, mb: 2 }}>
+                    {company.name}
+                  </Typography>
+                </Stack>
+                <Typography sx={{ fontSize: '0.9rem', color: theme.palette.secondary.light, fontSize: '1.1rem' }}>
                   {company.description}
                 </Typography>
               </Box>
@@ -330,40 +331,6 @@ export default function AboutPage() {
         </Grid>
       </Box>
       </Container>
-
-      {/* Leadership */}
-      <Container maxWidth="xl" sx={{ mb: 9 }}>
-      <Box>
-        <Typography variant="h3" sx={{ ...sectionTitleSx, textAlign: 'center', mb: 6 }}>
-          Board &amp; Executive Leadership
-        </Typography>
-        <Grid container spacing={3}>
-          {leadership.map((leader) => (
-            <Grid size={{ xs: 12, md: 4 }} key={leader.name}>
-              <Box sx={flatCardSx}>
-                <Typography sx={{ fontWeight: 600, color: theme.palette.secondary.text, mb: 0.3 }}>
-                  {leader.name}
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: '0.8rem',
-                    color: theme.palette.primary.main,
-                    fontWeight: 500,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px',
-                    mb: 2,
-                  }}
-                >
-                  {leader.designation}
-                </Typography>
-                <Typography sx={{ fontSize: '0.9rem', color: '#57534e', lineHeight: 1.75 }}>{leader.bio}</Typography>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
-      </Container>
-
     </Box>
   );
 }

@@ -1,9 +1,9 @@
 import './globals.css';
 import theme from '../theme/theme'; 
 import Navbar from '../components/layout/Navbar';
-import Footer from '../components/layout/Footer';
 import { ThemeProvider } from '@mui/material/styles';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import Footer from '@/components/layout/Footer';
 
 export const metadata = {
   title: "AAC Blocks & Panels",
