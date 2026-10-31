@@ -37,7 +37,7 @@ export default function CalculatorPage() {
     };
 
     return (
-        <Box sx={{ pt: 13 }}>
+        <Box sx={{ pt: 13, pb: 7 }}>
             <Container maxWidth="lg">
                 <Typography
                     variant="h3"

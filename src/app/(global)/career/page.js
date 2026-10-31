@@ -17,6 +17,8 @@ import {
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import CloseIcon from "@mui/icons-material/Close";
 
+import theme from "@/theme/theme";
+
 
 const initialCareerDetails = {
   name: "",
@@ -164,7 +166,7 @@ export default function Career() {
 
       {/* Career Form */}
       <Box sx={{ py: 10 }}>
-        <Container>
+        <Container maxWidth="md">
           <Box px={{ xs: 2, sm: 5, md: 10 }}>
             <Typography
               sx={{
@@ -175,7 +177,7 @@ export default function Career() {
                 fontWeight: 600,
                 mb: 5,
                 textAlign: "center",
-                color: "#6c6c6c",
+                color: theme.palette.secondary.text,
               }}
             >
               Join Us & Grow Fast
@@ -240,9 +242,9 @@ export default function Career() {
                   />
 
                   {/* Resume Upload */}
-                  <Box py={4}>
+                  <Box sx={{ mt: 4 }}>
                     <Button
-                      color={careerDetails.file_path ? "inherit" : "error"}
+                      color={careerDetails.file_path ? "inherit" : "success"}
                       component="label"
                       variant={
                         careerDetails.file_path
@@ -292,8 +294,7 @@ export default function Career() {
                     <Typography
                       variant="caption"
                       display="block"
-                      color="text.secondary"
-                      mt={1}
+                      sx={{ mt: 1, color: theme.palette.primary.main}}
                     >
                       Upload PDF only (Maximum 3MB)
                     </Typography>
