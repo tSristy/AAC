@@ -26,7 +26,7 @@ export default function TestimonialPage() {
                                 letterSpacing: '-0.5px'
                             }}
                         >
-                            Event & Exhibitions
+                            Testimonials
                         </Typography>
 
 

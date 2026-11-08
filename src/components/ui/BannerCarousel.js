@@ -10,10 +10,13 @@ import theme from '@/theme/theme';
 
 export default function BannerCarousel({ children }) {
   return (
-    <Box sx={{ width: '100%', height: '650px', '& .swiper-pagination-bullet': {
-      backgroundColor: '#ffffff',
-      opacity: 0.6,
-    },
+    <Box sx={{
+      width: '100%', height: '650px', '& .swiper-pagination-bullet': {
+        backgroundColor: '#ffffff',
+        opacity: 0.6,
+        width: '14px !important',
+        height: '14px !important'
+      },
 
     '& .swiper-pagination-bullet-active': {
       backgroundColor: theme.palette.primary.main,

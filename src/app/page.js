@@ -13,7 +13,7 @@ import blockProduct from '../../public/server/block.png';
 import blockProductHover from '../../public/server/blockHover.png';
 import panelProduct from '../../public/server/panel.png';
 import panelProductHover from '../../public/server/panelHover.png';
-import adhesiveProduct from '../../public/server/counter.png';
+import adhesiveProduct from '../../public/server/counter.jpg';
 import adhesiveProductHover from '../../public/server/counterHover.png';
 import mortarProduct from '../../public/server/mortar.png';
 import mortarProductHover from '../../public/server/mortarHover.png';
@@ -22,11 +22,35 @@ import props2 from '../../public/server/props2.png';
 import props3 from '../../public/server/props3.png';
 import props4 from '../../public/server/props4.png';
 import props5 from '../../public/server/props5.png';
-import hc from '../../public/server/hc.png';
+import hc from '../../public/server/hc1.png';
+
+import imgClient1 from '../../public/server/partnerLogo/logo1.png';
+import imgClient2 from '../../public/server/partnerLogo/logo2.jpg';
+import imgClient3 from '../../public/server/partnerLogo/logo3.png';
+import imgClient4 from '../../public/server/partnerLogo/logo4.png';
+import imgClient5 from '../../public/server/partnerLogo/logo5.jpg';
+import imgClient6 from '../../public/server/partnerLogo/logo6.png';
+import imgClient7 from '../../public/server/partnerLogo/logo7.jpg';
+import imgClient9 from '../../public/server/partnerLogo/logo9.jpg';
+import imgClient10 from '../../public/server/partnerLogo/logo10.jpeg';
+import imgClient11 from '../../public/server/partnerLogo/logo11.jpeg';
+import imgClient12 from '../../public/server/partnerLogo/logo12.jpeg';
+import imgClient13 from '../../public/server/partnerLogo/logo13.jpeg';
+
+
 
 import Image from "next/image";
 import NonStopCarousel from "@/components/ui/NonStopCarousel";
- 
+import SliderCarousel from "@/components/ui/SliderCarousel";
+
+/* ------------------------------------------------------------------ */
+/* Shared responsive values (used across sections)                     */
+/* ------------------------------------------------------------------ */
+const sectionTitleSx = { fontSize: { xs: '1.75rem', sm: '2.25rem', md: '3rem' }, lineHeight: 1.2 };
+const subTitleSx = { fontSize: { xs: '1rem', sm: '1.15rem', md: '1.25rem' } };
+const bodyTextSx = { fontSize: { xs: '1rem', md: '1.1rem' } };
+const sectionPx = { xs: 2, sm: 5, md: 10 };
+
 const afterBase = {
   content: '""',
   position: "absolute",
@@ -138,10 +162,10 @@ export default function Home() {
   const testimonialList = [
     {
       id: 1,
-      name: "John Doe",
+      name: "MD NUR NABI MEHEDI",
       position: "CEO, ABC Construction",
       testimonial: "Great Wall AAC Blocks have transformed our construction projects. Their durability and energy efficiency have significantly improved our building quality, and our clients are thrilled with the results.",
-      logo: "https://d113wk4ga3f0l0.cloudfront.net/c?o=eJyVkE9rwzAMxb-LYLfGTpOmS3LtoTA6Bu1hR2MSNXHzx8ZyEpbS7z4HyrIdJ9DhPQn0e7oD6cEWKAbbQg61c4ZyzilmspOz7uVErNAd981aVdWOnC4apjpZIbHBtFqWxIzV5VA4pXveYamkUA47YSyOCif67SWv2TaO-XYf7XbhPs22wflSSbwd3j_e5vMwH6fPutClPDU8XCoSp0ugCt0HYcpupoINNPjlSa_J9RpnXk6qdDXkaRZuoMYF8Sk8stHkr0J-h__Fk0To_sSapEPbSdsQX_fEj8tMX60skCQvsNI8ZalItyMKg_7fvfejZAMWSc0oKitH5ZZcBz9CC4_HN4sgja0=&s=98449b61c298785137ccf2cf8e23077d443b96a5"
+      logo: "https://img.magnific.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?w=360"
     },
     {
       id: 2,
@@ -183,7 +207,20 @@ export default function Home() {
     }
   ]
 
-  const [clientList, setClientList] = useState([]);
+  const [clientList, setClientList] = useState([
+    { id: 1, title: "Client 1", featured_image: imgClient1.src },
+    { id: 2, title: "Client 2", featured_image: imgClient2.src },
+    { id: 3, title: "Client 3", featured_image: imgClient3.src },
+    { id: 4, title: "Client 4", featured_image: imgClient4.src },
+    { id: 5, title: "Client 5", featured_image: imgClient5.src },
+    { id: 6, title: "Client 6", featured_image: imgClient6.src },
+    { id: 7, title: "Client 7", featured_image: imgClient7.src },
+    { id: 9, title: "Client 9", featured_image: imgClient9.src },
+    { id: 10, title: "Client 10", featured_image: imgClient10.src },
+    { id: 11, title: "Client 11", featured_image: imgClient11.src },
+    { id: 12, title: "Client 12", featured_image: imgClient12.src },
+    { id: 13, title: "Client 13", featured_image: imgClient13.src }
+  ]);
 
   // Trigger the Electric section's shade wipe only once it scrolls into view
   const [electricRef, setElectricRef] = useState(null); // callback-ref target
@@ -219,12 +256,12 @@ export default function Home() {
     })
       .then(res => res.json())
       .then(res => {
-        setClientList(res.items);
+        // setClientList(res.items);
       })
   }, []);
 
   return (
-    <Box>
+    <Box sx={{ overflowX: 'hidden' }}>
       <BannerCarousel>
         {heroSection.map((item) => (
           <Box key={item.id} sx={{ position: 'relative', width: '100%', height: '100%' }}>
@@ -238,10 +275,10 @@ export default function Home() {
             <Box sx={shadeOverlaySx(0.15, { activeSelector: '.swiper-slide-active' })} />
             <Container maxWidth="xl" sx={{ position: 'relative', height: '100%', zIndex: 1 }}>
               <Grid container sx={{ height: '100%' }}>
-                <Grid size={{ xs: 12, sm: 6 }} sx={{ height: '100%', display: 'flex', alignItems: 'center' }}>
-                  <Box sx={{ color: 'white', px: { xs: 0, sm: 2, md: 4 } }}>
-                    <Typography variant="h3" sx={{ fontWeight: '550' }}>{item.title}</Typography>
-                    <Typography variant="h6">{item.ucp}</Typography>
+                <Grid size={{ xs: 12, sm: 8, md: 6 }} sx={{ height: '100%', display: 'flex', alignItems: 'center' }}>
+                  <Box sx={{ color: 'white', px: { xs: 1, sm: 2, md: 4 } }}>
+                    <Typography variant="h3" sx={{ fontWeight: '550', fontSize: { xs: '1.6rem', sm: '2.1rem', md: '3rem' }, lineHeight: 1.2 }}>{item.title}</Typography>
+                    <Typography variant="h6" sx={{ mt: { xs: 1, md: 0 }, ...subTitleSx }}>{item.ucp}</Typography>
                     <Box sx={{ mt: 2 }}>{item.buttonOpt}</Box>
                   </Box>
                 </Grid>
@@ -273,8 +310,8 @@ export default function Home() {
                 position: 'absolute', top: 0, left: 0, width: '100%', justifyContent: 'space-around', alignItems: 'center',
                 height: '100%', bgcolor: 'rgba(0, 0, 0, 0.4)', color: 'white', p: 2
               }}>
-                <Typography variant='h4' sx={{ textAlign: 'center', fontWeight: '550' }}>{product.name}</Typography>
-                <Button variant='outlined' onClick={() => router.push(product.url)} sx={{ borderRadius: 20, borderColor: 'white', color: 'white', '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
+                <Typography variant='h4' sx={{ textAlign: 'center', fontWeight: '550', fontSize: { xs: '1.6rem', sm: '1.15rem', md: '2.125rem' } }}>{product.name}</Typography>
+                <Button variant='outlined' onClick={() => router.push(product.url)} sx={{ borderRadius: 20, borderColor: 'white', color: 'white', fontSize: { sm: '0.75rem', md: '0.875rem' }, '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
                   Know more
                 </Button>
               </Stack>
@@ -285,44 +322,64 @@ export default function Home() {
 
 
       {/* Why Choose Us */}
-      <Box sx={{ py: 10, bgcolor: theme.palette.secondary.main }}>
-        <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'center' }}>Why Choose Us</Typography>
+      <Box sx={{ py: { xs: 5, md: 10 }, px: { xs: 1, sm: 0 }, bgcolor: theme.palette.secondary.main }}>
+        <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'center', ...sectionTitleSx }}>Why Choose Us</Typography>
         <Container>
           <Grid container spacing={2} sx={{ justifyContent: 'center', alignItems: 'center' }}>
             {
               propsList.map((prop, index) => (
                 <Grid size={{ xs: 12, md: 6, lg: 'auto' }} key={index}>
-                  <Stack direction="row" spacing={1} sx={{ alignItems: 'center', textAlign: 'center' }}>
-                    <Box component="img" src={prop.icon} alt={prop.title} sx={{ width: '60px', height: '60px' }} />
-                    <Typography sx={{ fontSize: '1.1rem', fontWeight: '500' }} color={theme.palette.primary.text}>{prop.title}</Typography>
+                  <Stack direction="row" spacing={1} sx={{ alignItems: 'center', textAlign: 'center', justifyContent: { xs: 'flex-start', md: 'center' } }}>
+                    <Box component="img" src={prop.icon} alt={prop.title} sx={{ width: { xs: '48px', md: '60px' }, height: { xs: '48px', md: '60px' }, flexShrink: 0 }} />
+                    <Typography sx={{ fontSize: { xs: '1rem', md: '1.1rem' }, fontWeight: '500', textAlign: { xs: 'left', lg: 'center' } }} color={theme.palette.primary.text}>{prop.title}</Typography>
                   </Stack>
                 </Grid>
               ))
             }
           </Grid>
-          <Typography sx={{ mt: 4, color: theme.palette.primary.text, textTransform: 'none', fontSize: '1.1rem', textAlign: 'center' }}>
+          <Typography sx={{ mt: 4, color: theme.palette.primary.text, textTransform: 'none', fontSize: { xs: '1rem', md: '1.1rem' }, textAlign: 'center' }}>
             {`Combining superior strength, lightweight efficiency, and sustainable engineering, Great Wall AAC Blocks & Panels ensures your project is completed with exceptional quality, accelerated timelines, and optimized costs. Build better, faster, and smarter the intelligent choice for your construction.`}
           </Typography>
         </Container>
       </Box>
 
 
+      {/* Trusted by */}
+      <Box sx={{ py: { xs: 5, md: 8 }, px: sectionPx }}>
+        <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'center', ...sectionTitleSx }}>Trusted by</Typography>
+        <Typography variant='h6' sx={{ mb: 3, color: theme.palette.primary.text, textAlign: 'center', ...subTitleSx }}>Preferred choice of top-tier clients for quality-driven solutions.</Typography>
+
+        <NonStopCarousel itemName='client'>
+          {clientList.length > 0 && clientList.map(item => (
+            <Box component="img" key={item.id} src={item.featured_image} loading="lazy"
+              decoding="async" alt={item.title} sx={{
+                width: 'auto',
+                aspectRatio: '1/1', height: { xs: '80px', md: '120px' }, objectFit: 'contain',
+                "&:hover": { bgcolor: '#f8f8f8', borderRadius: 2 }
+              }} />
+          ))}
+        </NonStopCarousel>
+      </Box>
+
+
       {/* Who we are */}
-      <Box sx={{ p: 10 }}>
+      <Box sx={{ p: { xs: 2, sm: 4, md: 10 } }}>
         <Grid container spacing={4} direction="row" sx={{ justifyContent: "space-between", alignItems: "center" }}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Box component="img" src={hc.src} alt='Great Wall'
               sx={{
                 // p: { sm: 0, md: 5 },
                 width: '100%',
+                height: 'auto',
+                display: 'block',
               }} />
           </Grid>
 
           <Grid size={{ xs: 12, md: 6 }}>
             <Box>
-              <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'left' }}>Who We Are</Typography>
+              <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'left', ...sectionTitleSx }}>Who We Are</Typography>
 
-              <Typography sx={{ whiteSpace: 'pre-line', mb: 3, color: theme.palette.primary.text, textTransform: 'none', fontSize: '1.1rem', textAlign: 'justify' }}>{`Great Wall AAC Block & Panels is a leading manufacturer of premium Autoclaved Aerated Concrete (AAC) blocks, panels, lentils and counter in Bangladesh. Built on a foundation of innovation, sustainability, and uncompromising quality, we are committed to delivering advanced construction solutions that meet the evolving demands of modern infrastructure.\n
+              <Typography sx={{ whiteSpace: 'pre-line', mb: 3, color: theme.palette.primary.text, textTransform: 'none', fontSize: { xs: '1rem', md: '1.1rem' }, textAlign: { xs: 'left', md: 'justify' } }}>{`Great Wall AAC Block & Panels is a leading manufacturer of premium Autoclaved Aerated Concrete (AAC) blocks, panels, lentils and counter in Bangladesh. Built on a foundation of innovation, sustainability, and uncompromising quality, we are committed to delivering advanced construction solutions that meet the evolving demands of modern infrastructure.\n
               Our AAC products are engineered using state-of-the-art technology and rigorously tested by Bangladesh University of Engineering and Technology (BUET), Military Institute of Science and Technology (MIST) and Bangladesh Council of Scientific and Industrial Research (BCSIR) ensuring superior performance, durability, and reliability.
               `}
               </Typography>
@@ -336,47 +393,17 @@ export default function Home() {
       </Box>
 
 
-      {/* Trusted by */}
-      <Box sx={{ py: 5, px: 10 }}>
-        <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'center' }}>Trusted by</Typography>
-        <Typography variant='h6' sx={{ mb: 3, color: theme.palette.primary.text, textAlign: 'center' }}>Preferred choice of top-tier clients for quality-driven solutions.</Typography>
-
-        <NonStopCarousel itemName='client'>
-          {clientList.length > 0 && clientList.map(item => (
-            <Box component="img" key={item.id} src={'https://charuceramic.com/api' + item.featured_image} loading="lazy"
-              decoding="async" alt={item.title} sx={{
-                width: 'auto',
-                aspectRatio: '1/1', height: '120px', objectFit: 'contain',
-                "&:hover": { bgcolor: '#f8f8f8', borderRadius: 2 }
-              }} />
-          ))}
-        </NonStopCarousel>
-
-
-        {/* <Box sx={{ mt: 5 }}>
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              borderRadius: 20,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover', // Ensures the video fills the container
-            }}
-          >
-            <source src="https://charuceramic.com/api/pdf/1768800185799-984379396.mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </Box> */}
-      </Box>
-
-
       {/* Electric */}
       <Box ref={setElectricRef} sx={{ position: 'relative' }}>
         <Box sx={shadeOverlaySx(0, { isActive: isElectricInView })} />
-        <Box sx={{ p: 10, height: '650px', backgroundImage: `url(${bg_e.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <Box sx={{
+          p: { xs: 3, sm: 5, md: 10 },
+          height: { xs: 'auto', md: '650px' },
+          minHeight: { xs: '420px', md: 0 },
+          backgroundImage: `url(${bg_e.src})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}>
           <Grid container spacing={4} direction="row"
             sx={{
               justifyContent: "space-between", alignItems: "center",
@@ -384,9 +411,9 @@ export default function Home() {
             }}>
             <Grid size={{ xs: 12, md: 6 }}>
               <Box>
-                <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.main, fontWeight: '550', textAlign: 'left' }}>AAC BLOCKS SAVES UPTO 30% ON ELECTRICITY COST</Typography>
+                <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.main, fontWeight: '550', textAlign: 'left', fontSize: { xs: '1.5rem', sm: '2rem', md: '3rem' }, lineHeight: 1.2 }}>AAC BLOCKS SAVES UPTO 30% ON ELECTRICITY COST</Typography>
 
-                <Typography sx={{ whiteSpace: 'pre-line', mb: 3, color: theme.palette.secondary.main, textTransform: 'none', fontSize: '1.1rem', textAlign: 'justify' }}>{`In modern construction, energy efficiency is no longer optional—it is a core requirement for sustainable, cost-effective buildings. Autoclaved Aerated Concrete (AAC) blocks offer a revolutionary approach to thermal insulation, helping property owners achieve significant, long-term savings on electricity bills.`}
+                <Typography sx={{ whiteSpace: 'pre-line', mb: 3, color: theme.palette.secondary.main, textTransform: 'none', fontSize: { xs: '1rem', md: '1.1rem' }, textAlign: { xs: 'left', md: 'justify' } }}>{`In modern construction, energy efficiency is no longer optional—it is a core requirement for sustainable, cost-effective buildings. Autoclaved Aerated Concrete (AAC) blocks offer a revolutionary approach to thermal insulation, helping property owners achieve significant, long-term savings on electricity bills.`}
                 </Typography>
 
                 <Button variant='outlined' onClick={() => router.push('/aac-blocks#electric')} sx={{ borderRadius: 20, borderColor: theme.palette.secondary.main, color: theme.palette.secondary.main, '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
@@ -410,36 +437,39 @@ export default function Home() {
 
       {/* Video Gallery */}
       <Box sx={{ py: 5 }}>
-        <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'center' }}>Video Gallery</Typography>
+        <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'center', ...sectionTitleSx }}>Video Gallery</Typography>
+
+        <SliderCarousel />
       </Box>
 
 
 
       {/* Testimonial */}
-      <Box sx={{ py: 5, px: 10 }}>
-        <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'center' }}>Testimonials</Typography>
-        <Typography variant='h6' sx={{ mb: 5, color: theme.palette.primary.text, textAlign: 'center' }}>Success stories straight from our Clients Nationwide.</Typography>
+      <Box sx={{ py: 5, px: sectionPx }}>
+        <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'center', ...sectionTitleSx }}>Testimonials</Typography>
+        <Typography variant='h6' sx={{ mb: 5, color: theme.palette.primary.text, textAlign: 'center', ...subTitleSx }}>Success stories straight from our Clients Nationwide.</Typography>
 
-        <Grid container spacing={4} sx={{ justifyContent: 'center', alignItems: 'center' }}>
+        <Grid container spacing={{ xs: 2, md: 4 }} sx={{ justifyContent: 'center', alignItems: 'stretch' }}>
           {
             testimonialList.map((testimonial, index) => (
               <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>
                 <Box sx={{
                   boxShadow: 1,
                   borderRadius: 3,
-                  p: 3,
+                  p: { xs: 2, md: 3 },
+                  height: '100%',
                   '&:hover': {
                     cursor: 'pointer',
                     boxShadow: 6,
                     transition: 'box-shadow 0.3s ease-in-out',
                   }
                 }}>
-                  <Typography sx={{ mt: 2, fontSize: '1.1rem', color: theme.palette.primary.text }}>{testimonial.testimonial.substring(0, 200)}...</Typography>
+                  <Typography sx={{ mt: 2, fontSize: { xs: '1rem', md: '1.1rem' }, color: theme.palette.primary.text }}>{testimonial.testimonial.substring(0, 200)}...</Typography>
                   <Divider sx={{ my: 2 }} />
                   <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
-                    <img src={testimonial.logo} alt={testimonial.name} style={{ width: '30px', height: '30px', borderRadius: '50%' }} />
+                    <img src={testimonial.logo} alt={testimonial.name} style={{ width: '50px', height: '50px', borderRadius: '50%', flexShrink: 0, objectFit: 'cover' }} />
                     <Box>
-                      <Typography variant='h6' sx={{ color: theme.palette.primary.text, textAlign: 'left' }}>{testimonial.name}</Typography>
+                      <Typography variant='h6' sx={{ color: theme.palette.primary.text, textAlign: 'left', fontSize: { xs: '1rem', md: '1.25rem' } }}>{testimonial.name}</Typography>
                       <Typography sx={{ fontSize: '0.9rem', color: '#666' }}>{testimonial.position}</Typography>
                     </Box>
                   </Stack>
@@ -458,10 +488,10 @@ export default function Home() {
 
 
       {/* Event & Exhibitions */}
-      <Box sx={{ py: 5, px: 10, bgcolor: theme.palette.secondary.main }}>
-        <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, textAlign: 'center', fontWeight: '550' }}>Event & Exhibitions</Typography>
+      <Box sx={{ py: 5, px: sectionPx, bgcolor: theme.palette.secondary.main }}>
+        <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, textAlign: 'center', fontWeight: '550', ...sectionTitleSx }}>Event & Exhibitions</Typography>
 
-        <Grid container spacing={4} sx={{ justifyContent: 'center', alignItems: 'center' }}>
+        <Grid container spacing={{ xs: 2, md: 4 }} sx={{ justifyContent: 'center', alignItems: 'stretch' }}>
           {
             eventList.map((event, index) => (
               <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>
@@ -470,6 +500,7 @@ export default function Home() {
                   borderRadius: 3,
                   boxShadow: 1,
                   p: 2,
+                  height: '100%',
                   '&:hover': {
                     cursor: 'pointer',
                     boxShadow: 6,
@@ -477,11 +508,11 @@ export default function Home() {
                   }
                 }}>
 
-                  <Box component="img" src={event.featured_image} alt={event.title} sx={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: 2 }} />
+                  <Box component="img" src={event.featured_image} alt={event.title} sx={{ width: '100%', height: { xs: '180px', md: '200px' }, objectFit: 'cover', borderRadius: 2 }} />
 
                   <Typography sx={{ mt: 2, fontSize: '0.9rem', color: '#666' }}>{event.date} | {event.location}</Typography>
-                  <Typography variant='h6' sx={{ color: theme.palette.primary.text, fontWeight: '600' }}>{event.title}</Typography>
-                  <Typography sx={{ cursor: 'pointer', fontSize: '1.1rem', mt: 2, color: theme.palette.primary.main }} onClick={() => router.push(`/events/${event.id}`)}>
+                  <Typography variant='h6' sx={{ color: theme.palette.primary.text, fontWeight: '600', fontSize: { xs: '1.05rem', md: '1.25rem' } }}>{event.title}</Typography>
+                  <Typography sx={{ cursor: 'pointer', fontSize: { xs: '1rem', md: '1.1rem' }, mt: 2, color: theme.palette.primary.main }} onClick={() => router.push(`/event-exhibitions`)}>
                     Read more
                   </Typography>
                 </Box>
@@ -491,7 +522,7 @@ export default function Home() {
         </Grid>
 
         <Box sx={{ pt: 5, display: 'flex', justifyContent: 'center' }}>
-          <Button variant='outlined' onClick={() => router.push('/events')} sx={{ borderRadius: 20, borderColor: theme.palette.primary.main, color: theme.palette.primary.main, '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
+          <Button variant='outlined' onClick={() => router.push('/event-exhibitions')} sx={{ borderRadius: 20, borderColor: theme.palette.primary.main, color: theme.palette.primary.main, '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
             View More
           </Button>
         </Box>

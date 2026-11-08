@@ -3,6 +3,10 @@ import theme from '@/theme/theme';
 import { useState } from 'react';
 import { Box, Button, Container, FormControl, Grid, InputLabel, MenuItem, Select, Stack, TextField, Typography } from '@mui/material';
 
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 export default function ContactPage() {
   const [subject, setSubject] = useState('');
@@ -47,6 +51,14 @@ export default function ContactPage() {
                 </Box>
               </Stack>
             </Box>
+
+            {/* <Stack direction='row' spacing={2} sx={{  }}>
+              <FacebookIcon sx={{ color: 'blue' }}/>
+              <InstagramIcon sx={{ color: 'red' }}/>
+              <YouTubeIcon sx={{ color: 'red' }}/>
+              <WhatsAppIcon sx={{ color: 'green' }}/>
+            </Stack> */}
+
           </Grid>
 
           <Grid size={{ xs: 12, sm: 6 }}>

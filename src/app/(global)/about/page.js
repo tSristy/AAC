@@ -26,9 +26,8 @@ import imgGW from '../../../../public/server/aboutIcon/GW.png';
 import imgHiTech from '../../../../public/server/aboutIcon/Hitech.png';
 import imgShips from '../../../../public/server/aboutIcon/Ships.png';
 
-
 const quickFacts = [
-  { icon: <LocationOnIcon fontSize="medium" />, label: 'Plant location', value: 'Kholapara, Kaliganj, Gazipur' },
+  { icon: <LocationOnIcon fontSize="medium" />, label: 'Plant location', value: 'Kholapara, Kaliganj, Gazipur, Bangladesh' },
   { icon: <PrecisionManufacturingIcon fontSize="medium" />, label: 'Annual capacity', value: '~220,000 CBM' },
   { icon: <ScienceIcon fontSize="medium" />, label: 'Product engineering', value: 'Swedish-innovation, Chinese technology' },
   { icon: <VerifiedIcon fontSize="medium" />, label: 'Standards followed', value: 'ASTM International' },
@@ -43,7 +42,7 @@ const journeyMilestones = [
   },
   {
     year: '2012',
-    title: 'Charu Ceramic',
+    title: 'Charu Ceramic Industries Ltd.',
     description:
       'A premium sanitary ware brand launched in technical collaboration with COTTO (Thailand), bringing international standards to the category.',
   },
@@ -78,7 +77,7 @@ const groupCompanies = [
   {
     id: 2,
     icon: imgCharu.src,
-    name: "Charu Ceramic Ind. Ltd.",
+    name: "Charu Ceramic Industries Ltd.",
     description: "Established in 2012, Charu Ceramic Ind. Ltd. is a contemporary premium brand in Bangladesh's sanitary ware industry. Through technical collaboration with COTTO, Thailand, the company manufactures high-end sanitary ware and fittings that combine international standards, luxury, quality, and durability."
   },
   {
@@ -96,93 +95,87 @@ const groupCompanies = [
   {
     id: 5,
     icon: imgHiTech.src,
-    name: "Great Wall Hi-Tech Ind. Ltd.",
+    name: "Great Wall Hi-Tech Industries Ltd.",
     description: "Great Wall Hi-Tech Industries Limited is an innovative and fast-growing manufacturer in Bangladesh's energy solutions sector. The company produces high-performance batteries for various applications, including automotive, solar power systems, IPS (inverter power systems), and electric vehicles (EVs)."
   },
   {
     id: 6,
     icon: imgGW.src,
-    name: "Great Wall Printing & Packaging Ind. Limited",
+    name: "Great Wall Printing & Packaging Ind. Ltd.",
     description: "Great Wall Printing & Packaging Industries Limited is a Bangladesh-based printing and packaging manufacturer specializing in cartons and packaging materials. The company utilizes fully automated and advanced machinery to deliver modern manufacturing and packaging solutions."
   }
 ];
 
-
-
-// Shared "flat card" look used everywhere instead of shadow-heavy MUI Cards:
-// a hairline border, no radius theatrics, no shadow, no hover lift. Only the
-// border color shifts to the accent on hover, kept subtle on purpose.
 const flatCardSx = {
   border: '1px solid #e5e3e0',
   borderRadius: '4px',
-  p: 3,
+  p: { xs: 2, md: 3 },
   height: '100%',
   transition: 'border-color 0.2s ease',
   '&:hover': {
-    // borderColor: theme.palette.primary.main,
     cursor: 'pointer',
     boxShadow: 6,
     transition: 'box-shadow 0.3s ease-in-out',
   }
 };
 
-
 export default function AboutPage() {
   return (
-    <Box sx={{ bgcolor: 'background.default' }}>
+    <Box sx={{ bgcolor: 'background.default', overflowX: 'hidden' }}>
       {/* Hero */}
       <Box
         component="header"
         sx={{
           position: 'relative',
           color: 'white',
-          height: { xs: 300, md: 400 },
-          backgroundImage:
-            // TODO: swap in a real plant/product photo instead of this placeholder
-            `linear-gradient(rgba(1, 1, 1, 0.6), rgba(102, 102, 102, 0.6)), url(${img1.src})`,
+          height: { xs: 280, sm: 350, md: 400 },
+          backgroundImage: `linear-gradient(rgba(1, 1, 1, 0.6), rgba(102, 102, 102, 0.6)), url(${img1.src})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          display: 'flex',
+          alignItems: 'center',
         }}
       >
-        <Container sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'center' }}>
-          <Typography variant="h3" sx={{ fontWeight: '550' }}>
+        <Container maxWidth="xl" sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'center' }}>
+          <Typography variant="h3" sx={{ fontWeight: '550', fontSize: { xs: '1.75rem', sm: '2.25rem', md: '3rem' }, lineHeight: 1.2, textAlign: 'center' }}>
             Bangladesh&rsquo;s Trusted AAC Blocks Manufacturer
           </Typography>
-          <Typography variant="h6" sx={{ mt: 2, textAlign: 'center', maxWidth: 600 }}>
+          <Typography variant="h6" sx={{ mt: 2, maxWidth: 600, fontSize: { xs: '1rem', sm: '1.15rem', md: '1.25rem' }, textAlign: 'center'}}>
             Delivering durable, lightweight and eco-friendly building solutions, backed by nearly two decades of manufacturing heritage.
           </Typography>
         </Container>
       </Box>
 
       {/* Who We Are */}
-      <Container maxWidth="xl" sx={{ py: { xs: 7, md: 10 } }}>
-        <Box sx={{ px: { sm: 0, md: 2, lg: 4 } }}>
-          <Grid container spacing={6}>
-            <Grid size={{ xs: 12, md: 8 }}>
-              <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550' }}>
-                Who We Are
+      <Container maxWidth="xl" sx={{ py: { xs: 5, md: 10 }, px: { xs: 2, sm: 4, md: 6 } }}>
+        <Grid container spacing={{ xs: 4, md: 6 }}>
+          <Grid size={{ xs: 12, md: 8 }}>
+            <Typography variant='h3' sx={{ mb: 2, color: theme.palette.secondary.text, fontWeight: '550', fontSize: { xs: '1.75rem', sm: '2.25rem', md: '3rem' } }}>
+              Who We Are
+            </Typography>
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} sx={{ alignItems: { xs: 'flex-start', sm: 'center' }, mb: 2 }}>
+              <Divider sx={{ width: 40, borderColor: theme.palette.primary.main, borderBottomWidth: 2, mb: { xs: 1, sm: 0 } }} />
+              <Typography variant='h6' sx={{ color: theme.palette.primary.main, letterSpacing: '0.5px', fontSize: { xs: '1rem', sm: '1.15rem' } }}>
+                A Legacy of Excellence and Innovation
               </Typography>
-            <Divider sx={{ width: 40, borderColor: theme.palette.primary.main, borderBottomWidth: 2, mb: 3 }} />
+            </Stack>
             <Stack spacing={2}>
-              <Typography sx={{ color: theme.palette.text.primary, textAlign: 'justify', whiteSpace: 'pre-line', fontSize: '1.1rem' }}>
-                {`Great Wall AAC Block & Panels is a leading manufacturer of premium Autoclaved Aerated Concrete (AAC) blocks, panels, lentils and counter in Bangladesh. Built on a foundation of innovation, sustainability, and uncompromising quality, we are committed to delivering advanced construction solutions that meet the evolving demands of modern infrastructure.\n                
+              <Typography sx={{ color: theme.palette.text.primary, textAlign: 'justify', whiteSpace: 'pre-line', fontSize: { xs: '1rem', md: '1.1rem' }, lineHeight: 1.6 }}>
+                {`Great Wall AAC Block & Panels is a leading manufacturer of premium Autoclaved Aerated Concrete (AAC) blocks, panels, lentils and counter in Bangladesh. Built on a foundation of innovation, sustainability, and uncompromising quality, we are committed to delivering advanced construction solutions that meet the evolving demands of modern infrastructure.\n
                 Our AAC products are engineered using state-of-the-art technology and rigorously tested by Bangladesh University of Engineering and Technology (BUET), Military Institute of Science and Technology (MIST) and Bangladesh Council of Scientific and Industrial Research (BCSIR) ensuring superior performance, durability, and reliability. Designed for efficiency, Great Wall AAC blocks offer excellent thermal insulation, reduced structural load, and enhanced environmental sustainability—helping developers optimize both construction costs and long-term value.\n
-                By combining strength, lightweight performance, and eco-conscious design, Great Wall AAC Block & Panels stands at the forefront of next-generation building materials, shaping the future of construction in Bangladesh.
-                `}
+                By combining strength, lightweight performance, and eco-conscious design, Great Wall AAC Block & Panels stands at the forefront of next-generation building materials, shaping the future of construction in Bangladesh.`}
               </Typography>
             </Stack>
           </Grid>
 
           <Grid size={{ xs: 12, md: 4 }}>
-            <Box sx={{ borderLeft: '2px solid', borderTopRightRadius: 8, borderBottomRightRadius: 8, borderColor: theme.palette.primary.main, p: 3, 
-              // backgroundColor: '#f9f9f9', 
-              height: '100%' }}>
-              <Typography variant='h6' sx={{ mb: 3, color: theme.palette.secondary.light, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+            <Box sx={{ borderLeft: { xs: 'none', md: '2px solid' }, borderTop: { xs: '2px solid', md: 'none' }, borderTopRightRadius: { md: 8 }, borderBottomRightRadius: { md: 8 }, borderColor: theme.palette.primary.main, p: { xs: 2, md: 3 }, height: '100%' }}>
+              <Typography variant='h6' sx={{ mb: 3, color: theme.palette.secondary.light, textTransform: 'uppercase', letterSpacing: '0.5px', fontSize: { xs: '1.1rem', md: '1.25rem' } }}>
                 Quick Facts
               </Typography>
               <Stack spacing={2.5}>
                 {quickFacts.map((fact) => (
-                  <Stack key={fact.label} direction="row" spacing={1.5} sx={{ alignItems: 'center' }}>
+                  <Stack key={fact.label} direction="row" spacing={1.5} sx={{ alignItems: 'flex-start' }}>
                     <Box sx={{ color: theme.palette.primary.main, mt: 0.2 }}>{fact.icon}</Box>
                     <Box>
                       <Typography sx={{ fontSize: '0.9rem', color: theme.palette.secondary.light }}>{fact.label}</Typography>
@@ -193,22 +186,21 @@ export default function AboutPage() {
               </Stack>
             </Box>
           </Grid>
-          </Grid>
-        </Box>
+        </Grid>
       </Container>
 
       {/* Vision & Mission */}
-      <Container maxWidth="xl" sx={{ px: { xs: 7, md: 10 } }}>
-        <Grid container spacing={3} sx={{ mb: 9, alignItems: 'stretch', px: { xs: 2, md: 0 } }}>
+      <Container maxWidth="xl" sx={{ px: { xs: 2, sm: 4, md: 6 }, mb: { xs: 6, md: 9 } }}>
+        <Grid container spacing={3} sx={{ alignItems: 'stretch' }}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Box sx={flatCardSx}>
               <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center', mb: 1 }}>
-              <PublicIcon sx={{ fontSize: '1.6rem', color: theme.palette.primary.main, mb: 1.5 }} />
-              <Typography variant="h6" sx={{ fontWeight: 600, color: theme.palette.secondary.text, mb: 1 }}>
-                Vision
-              </Typography>
+                <PublicIcon sx={{ fontSize: '1.6rem', color: theme.palette.primary.main, mb: 1.5 }} />
+                <Typography variant="h6" sx={{ fontWeight: 600, color: theme.palette.secondary.text, mb: 1 }}>
+                  Vision
+                </Typography>
               </Stack>
-              <Typography sx={{ color: theme.palette.text.primary, fontSize: '1.1rem' }}>
+              <Typography sx={{ color: theme.palette.text.primary, fontSize: { xs: '1rem', md: '1.1rem' }, lineHeight: 1.6 }}>
                 To revolutionize the construction industry in Bangladesh by delivering world-class AAC solutions that enable sustainable, smart, and cost-efficient buildings for generations to come.
               </Typography>
             </Box>
@@ -217,11 +209,11 @@ export default function AboutPage() {
             <Box sx={flatCardSx}>
               <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center', mb: 1 }}>
                 <FoundationIcon sx={{ fontSize: '1.6rem', color: theme.palette.primary.main, mb: 1.5 }} />
-                <Typography variant='h6' sx={{ color: theme.palette.primary.text, mb: 1 }}>
+                <Typography variant='h6' sx={{ color: theme.palette.primary.text, mb: 1, fontWeight: 600 }}>
                   Mission
                 </Typography>
               </Stack>
-              <Typography sx={{ color: '#57534e', fontSize: '1.1rem' }}>
+              <Typography sx={{ color: '#57534e', fontSize: { xs: '1rem', md: '1.1rem' }, lineHeight: 1.6 }}>
                 To manufacture world-class AAC blocks and panels that merge structural strength with environmental responsibility—equipping developers, architects, and homeowners with solutions that accelerate construction, lower total costs, and elevate building standards.
               </Typography>
             </Box>
@@ -230,10 +222,7 @@ export default function AboutPage() {
       </Container>
 
       {/* Key Highlights */}
-      <Box sx={{ mb: 9, py: 5, bgcolor: theme.palette.primary.main,
-        // borderTop: '1px solid #e5e3e0', 
-        // borderBottom: '1px solid #e5e3e0' 
-       }}>
+      <Box sx={{ mb: { xs: 6, md: 9 }, py: 5, bgcolor: theme.palette.primary.main, px: { xs: 2, md: 6 } }}>
         <Grid container spacing={4}>
           {highlights.map((item, index) => (
             <Grid size={{ xs: 6, md: 3 }} key={item.label}>
@@ -241,36 +230,35 @@ export default function AboutPage() {
                 sx={{
                   textAlign: 'center',
                   px: 2,
-                  borderLeft: { xs: 'none', md: index === 0 ? 'none' : '1px solid #e5e3e0' },
+                  borderLeft: { xs: 'none', md: index === 0 ? 'none' : '1px solid rgba(255, 255, 255, 0.2)' },
                 }}
               >
-                <Typography sx={{ fontWeight: 600, color: theme.palette.secondary.main, fontSize: '1.4rem', mb: 0.5 }}>
+                <Typography sx={{ fontWeight: 600, color: theme.palette.secondary.main, fontSize: { xs: '1.2rem', md: '1.4rem' }, mb: 0.5 }}>
                   {item.stat}
                 </Typography>
-                <Typography sx={{ fontSize: '0.9rem', color: theme.palette.secondary.main, lineHeight: 1.5 }}>{item.label}</Typography>
+                <Typography sx={{ fontSize: { xs: '0.85rem', md: '0.9rem' }, color: theme.palette.secondary.main, lineHeight: 1.5 }}>{item.label}</Typography>
               </Box>
             </Grid>
           ))}
         </Grid>
       </Box>
 
-
       {/* Our Journey */}
-      <Container maxWidth="lg" sx={{ mb: 9 }}>
+      <Container maxWidth="lg" sx={{ mb: { xs: 6, md: 9 }, px: { xs: 2, sm: 4 } }}>
         <Box>
-          <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'center' }}>
+          <Typography variant='h3' sx={{ mb: 1, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'center', fontSize: { xs: '1.75rem', sm: '2.25rem', md: '3rem' } }}>
             Our Journey
           </Typography>
-          <Typography variant='h6' sx={{ mb: 3, color: theme.palette.primary.text, textAlign: 'center', mb: 6 }}>
+          <Typography variant='h6' sx={{ mb: { xs: 4, md: 6 }, color: theme.palette.primary.text, textAlign: 'center', fontSize: { xs: '1rem', sm: '1.15rem' } }}>
             From ceramics to AAC blocks - the milestones behind the Great Wall group.
           </Typography>
 
           <Stack spacing={0} sx={{ maxWidth: 760, mx: 'auto' }}>
             {journeyMilestones.map((milestone, index) => (
-              <Box key={milestone.title} sx={{ display: 'flex', gap: 3 }}>
+              <Box key={milestone.title} sx={{ display: 'flex', gap: { xs: 2, sm: 3 } }}>
                 {/* Year rail */}
-                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 84, flexShrink: 0 }}>
-                  <Typography sx={{ fontWeight: 600, color: theme.palette.primary.main, fontSize: '1.1rem' }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: { xs: 60, sm: 84 }, flexShrink: 0 }}>
+                  <Typography sx={{ fontWeight: 600, color: theme.palette.primary.main, fontSize: { xs: '1rem', sm: '1.1rem' }, textAlign: 'center' }}>
                     {milestone.year}
                   </Typography>
                   <Box
@@ -290,10 +278,10 @@ export default function AboutPage() {
 
                 {/* Content */}
                 <Box sx={{ pb: 4 }}>
-                  <Typography sx={{ fontSize: '1.1rem', fontWeight: 550, color: theme.palette.secondary.text, mb: 0.5 }}>
+                  <Typography sx={{ fontSize: { xs: '1rem', sm: '1.1rem' }, fontWeight: 550, color: theme.palette.secondary.text, mb: 0.5 }}>
                     {milestone.title}
                   </Typography>
-                  <Typography sx={{ color: theme.palette.secondary.light, fontSize: '1.1rem' }}>
+                  <Typography sx={{ color: theme.palette.secondary.light, fontSize: { xs: '0.95rem', sm: '1.1rem' }, lineHeight: 1.5 }}>
                     {milestone.description}
                   </Typography>
                 </Box>
@@ -304,32 +292,32 @@ export default function AboutPage() {
       </Container>
 
       {/* Our Industrial Footprint */}
-      <Container maxWidth="xl" sx={{ mb: 9, px: { xs: 7, md: 10 } }}>
-      <Box sx={{ mb: 9 }}>
-        <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'center' }}>
-          Our Industrial Footprint
-        </Typography>
-        <Typography variant='h6' sx={{ mb: 3, color: theme.palette.primary.text, textAlign: 'center', mb: 6 }}>
-          Great Wall AAC Block & Panels is backed by the collective strength and heritage of our diverse ventures.
-        </Typography>
-        <Grid container spacing={3}>
-          {groupCompanies.map((company) => (
-            <Grid size={{ xs: 12, md: 6, lg: 4 }} key={company.name}>
-              <Box sx={flatCardSx}>
-                <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center', mb: 1 }}>
-                  <Box component="img" src={company.icon} alt={company.name} sx={{ width: 32, height: 32 }} />
-                  <Typography variant="h6" sx={{ fontWeight: 500, color: theme.palette.primary.text, mb: 2 }}>
-                    {company.name}
+      <Container maxWidth="xl" sx={{ mb: { xs: 6, md: 9 }, px: { xs: 2, sm: 4, md: 6 } }}>
+        <Box>
+          <Typography variant='h3' sx={{ mb: 1, color: theme.palette.secondary.text, fontWeight: '550', textAlign: 'center', fontSize: { xs: '1.75rem', sm: '2.25rem', md: '3rem' } }}>
+            Our Industrial Footprint
+          </Typography>
+          <Typography variant='h6' sx={{ mb: { xs: 4, md: 6 }, color: theme.palette.primary.text, textAlign: 'center', fontSize: { xs: '1rem', sm: '1.15rem' } }}>
+            Great Wall AAC Block & Panels is backed by the collective strength and heritage of our diverse ventures.
+          </Typography>
+          <Grid container spacing={3}>
+            {groupCompanies.map((company) => (
+              <Grid size={{ xs: 12, md: 6, lg: 4 }} key={company.name}>
+                <Box sx={flatCardSx}>
+                  <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center', mb: 2 }}>
+                    <Box component="img" src={company.icon} alt={company.name} sx={{ width: 32, height: 32, objectFit: 'contain' }} />
+                    <Typography variant="h6" sx={{ fontWeight: 500, color: theme.palette.primary.text, fontSize: { xs: '1.1rem', md: '1.25rem' } }}>
+                      {company.name}
+                    </Typography>
+                  </Stack>
+                  <Typography sx={{ color: theme.palette.secondary.light, fontSize: { xs: '1rem', md: '1.1rem' }, textAlign: 'justify', whiteSpace: 'pre-line', lineHeight: 1.6 }}>
+                    {company.description}
                   </Typography>
-                </Stack>
-                <Typography sx={{ fontSize: '0.9rem', color: theme.palette.secondary.light, fontSize: '1.1rem' }}>
-                  {company.description}
-                </Typography>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
       </Container>
     </Box>
   );

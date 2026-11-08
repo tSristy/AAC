@@ -210,28 +210,394 @@ AAC Blocks are a lightweight, pre-fabricated building material that has gained i
                 </Grid>
             </Box>
 
+            
             {/* Electric */}
-            <Box
-                id="electric"
+<Box
+    id="electric"
+    sx={{
+        position: 'relative',
+        overflow: 'hidden',
+        py: { xs: 7, md: 11 },
+        px: { xs: 2, sm: 4, md: 6 },
+        bgcolor: '#fafaf9',
+    }}
+>
+    <Container maxWidth="lg">
+
+        {/* Section Heading */}
+        <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 7 } }}>
+            <Typography
                 sx={{
-                    position: 'relative',
-                    scrollMarginTop: '80px'
+                    color: theme.palette.primary.main,
+                    fontSize: '0.85rem',
+                    fontWeight: 650,
+                    letterSpacing: 2.5,
+                    textTransform: 'uppercase',
+                    mb: 2,
                 }}
             >
-                <Box sx={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(0, 0, 0, 0.7)' }} />
-                <Box sx={{ p: 10, height: '650px', backgroundImage: `url(${bg_e.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                    <Container sx={{ position: 'relative', zIndex: 1 }}>
-                        <Typography variant='h3' sx={{ mb: 3, color: theme.palette.secondary.main, fontWeight: '550', textAlign: 'center', whiteSpace: 'pre-line' }}>{`AAC BLOCKS SAVES UPTO 30% \nON ELECTRICITY COST`}</Typography>
+                ENERGY EFFICIENCY
+            </Typography>
 
-                        <Typography sx={{ whiteSpace: 'pre-line', mb: 3, color: theme.palette.secondary.main, textTransform: 'none', fontSize: '1.1rem', textAlign: 'justify' }}>{`In modern construction, energy efficiency is no longer optional—it is a core requirement for sustainable, cost-effective buildings. Autoclaved Aerated Concrete (AAC) blocks offer a revolutionary approach to thermal insulation, helping property owners achieve significant, long-term savings on electricity bills.\n
-                        This advanced engineering minimizes heat transfer across walls:\n
-                        Summer Performance: Keeps interiors up to 5°C cooler naturally, drastically reducing the load on air conditioning units.\n
-                        Winter Performance: Retains indoor warmth, keeping spaces comfortably heated with minimal energy consumption.\n
-                        Industry-Leading Thermal Performance: Engineered for optimal thermal resistance, Great Wall AAC Blocks boast an industry-leading thermal rating of 0.16 W/m²K. This high level of insulation ensures a stable indoor microclimate regardless of external weather extremes.`}
-                        </Typography>                        
-                    </Container>
+            <Typography
+                variant="h3"
+                sx={{
+                    color: theme.palette.secondary.text,
+                    fontWeight: 600,
+                    fontSize: { xs: '1.8rem', sm: '2.3rem', md: '3rem' },
+                    lineHeight: 1.2,
+                    mb: 2.5,
+                }}
+            >
+                AAC BLOCKS SAVES UPTO 
+                <Box
+                    component="span"
+                    sx={{ color: theme.palette.primary.main }}
+                >
+                    {' '}30% ON ELECTRICITY
                 </Box>
+            </Typography>
+
+            <Typography
+                sx={{
+                    maxWidth: 800,
+                    mx: 'auto',
+                    color: theme.palette.primary.text,
+                    fontSize: { xs: '1rem', md: '1.1rem' },
+                    lineHeight: 1.8,
+                    fontWeight: 400,
+                }}
+            >
+                In modern construction, energy efficiency is no longer optional—it is a core requirement for sustainable, cost-effective buildings. Autoclaved Aerated Concrete (AAC) blocks offer a revolutionary approach to thermal insulation, helping property owners achieve significant, long-term savings on electricity bills.
+            </Typography>
+        </Box>
+
+        {/* Main Savings Highlight */}
+        <Box
+            sx={{
+                position: 'relative',
+                overflow: 'hidden',
+                borderRadius: 3,
+                p: { xs: 3, sm: 4, md: 5 },
+                mb: 3,
+                background: `linear-gradient(120deg, ${theme.palette.primary.main}, ${theme.palette.secondary.text})`,
+                color: '#fff',
+                display: 'flex',
+                flexDirection: { xs: 'column', md: 'row' },
+                alignItems: { xs: 'flex-start', md: 'center' },
+                justifyContent: 'space-between',
+                gap: 3,
+            }}
+        >
+            <Box
+                sx={{
+                    position: 'absolute',
+                    width: 260,
+                    height: 260,
+                    borderRadius: '50%',
+                    border: '1px solid rgba(255,255,255,0.10)',
+                    right: -65,
+                    top: -130,
+                    pointerEvents: 'none',
+                }}
+            />
+
+            <Box sx={{ position: 'relative', maxWidth: 560 }}>
+                <Typography
+                    sx={{
+                        fontSize: '0.85rem',
+                        letterSpacing: 1.8,
+                        fontWeight: 600,
+                        color: 'rgba(255,255,255,0.75)',
+                        mb: 1.5,
+                    }}
+                >
+                    LOWER ENERGY CONSUMPTION
+                </Typography>
+
+                <Typography
+                    variant="h5"
+                    sx={{
+                        fontWeight: 600,
+                        fontSize: { xs: '1.4rem', md: '1.8rem' },
+                        mb: 1.5,
+                    }}
+                >
+                    This advanced engineering minimizes heat transfer across walls:
+                </Typography>
+
+                <Typography
+                    sx={{
+                        color: 'rgba(255,255,255,0.8)',
+                        lineHeight: 1.7,
+                        fontSize: '1rem',
+                    }}
+                >
+                    Autoclaved Aerated Concrete blocks offer a revolutionary approach to thermal insulation, drastically reducing the load on air conditioning and heating units.
+                </Typography>
             </Box>
+
+            <Box
+                sx={{
+                    position: 'relative',
+                    minWidth: { xs: '100%', md: 210 },
+                    textAlign: { xs: 'left', md: 'center' },
+                    borderLeft: { xs: 'none', md: '1px solid rgba(255,255,255,0.25)' },
+                    pl: { xs: 0, md: 4 },
+                }}
+            >
+                <Typography
+                    sx={{
+                        fontSize: { xs: '3.5rem', md: '4.5rem' },
+                        fontWeight: 700,
+                        lineHeight: 1,
+                        color: '#fff',
+                    }}
+                >
+                    30%
+                </Typography>
+                <Typography
+                    sx={{
+                        mt: 1,
+                        fontSize: '0.9rem',
+                        fontWeight: 500,
+                        color: 'rgba(255,255,255,0.8)',
+                    }}
+                >
+                    Electricity Cost Savings
+                </Typography>
+            </Box>
+        </Box>
+
+
+        {/* Seasonal Performance */}
+        <Grid container spacing={3} sx={{ mb: 3 }}>
+
+            {/* Summer */}
+            <Grid size={{ xs: 12, md: 6 }}>
+                <Box
+                    sx={{
+                        height: '100%',
+                        p: { xs: 3, md: 4 },
+                        borderRadius: 3,
+                        bgcolor: '#fff',
+                        border: '1px solid #eae8e5',
+                        transition: 'all 0.3s ease',
+                        '&:hover': {
+                            transform: 'translateY(-5px)',
+                            boxShadow: '0 14px 35px rgba(0,0,0,0.07)',
+                            borderColor: theme.palette.primary.main,
+                        },
+                    }}
+                >
+                   
+                        
+
+                        <Typography
+                            sx={{
+                                color: theme.palette.primary.main,
+                                fontSize: '0.8rem',
+                                fontWeight: 650,
+                                letterSpacing: 1,
+                            }}
+                        >
+                            SUMMER PERFORMANCE
+                        </Typography>
+                    
+
+                    <Typography
+                        sx={{
+                            color: theme.palette.primary.text,
+                            fontSize: '1.1rem',
+                            lineHeight: 1.8,
+                        }}
+                    >
+                        Keeps interiors up to 5°C cooler naturally, drastically reducing the load on air conditioning units.
+                    </Typography>
+
+                    <Box
+                        sx={{
+                            mt: 3,
+                            pt: 2.5,
+                            borderTop: '1px solid #eeece9',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 1,
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                width: 8,
+                                height: 8,
+                                borderRadius: '50%',
+                                bgcolor: theme.palette.primary.main,
+                            }}
+                        />
+                        <Typography
+                            sx={{
+                                color: theme.palette.secondary.text,
+                                fontWeight: 550,
+                                fontSize: '0.9rem',
+                            }}
+                        >
+                            Up to 5°C cooler naturally
+                        </Typography>
+                    </Box>
+                </Box>
+            </Grid>
+
+            {/* Winter */}
+            <Grid size={{ xs: 12, md: 6 }}>
+                <Box
+                    sx={{
+                        height: '100%',
+                        p: { xs: 3, md: 4 },
+                        borderRadius: 3,
+                        bgcolor: '#fff',
+                        border: '1px solid #eae8e5',
+                        transition: 'all 0.3s ease',
+                        '&:hover': {
+                            transform: 'translateY(-5px)',
+                            boxShadow: '0 14px 35px rgba(0,0,0,0.07)',
+                            borderColor: theme.palette.primary.main,
+                        },
+                    }}
+                >
+                   <Typography
+                            sx={{
+                                color: theme.palette.primary.main,
+                                fontSize: '0.8rem',
+                                fontWeight: 650,
+                                letterSpacing: 1,
+                            }}
+                        >
+                            WINTER PERFORMANCE
+                        </Typography>
+
+                    <Typography
+                        sx={{
+                            color: theme.palette.primary.text,
+                            fontSize: '1.05rem',
+                            lineHeight: 1.8,
+                        }}
+                    >
+                        Retains indoor warmth, keeping spaces comfortably heated with minimal energy consumption.
+                    </Typography>
+
+                    <Box
+                        sx={{
+                            mt: 3,
+                            pt: 2.5,
+                            borderTop: '1px solid #eeece9',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 1,
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                width: 8,
+                                height: 8,
+                                borderRadius: '50%',
+                                bgcolor: theme.palette.primary.main,
+                            }}
+                        />
+                        <Typography
+                            sx={{
+                                color: theme.palette.secondary.text,
+                                fontWeight: 550,
+                                fontSize: '0.9rem',
+                            }}
+                        >
+                            Minimal energy consumption
+                        </Typography>
+                    </Box>
+                </Box>
+            </Grid>
+        </Grid>
+
+        {/* Thermal Performance Footer */}
+        <Box
+            sx={{
+                p: { xs: 3, md: 4 },
+                borderRadius: 3,
+                bgcolor: '#f0f1ed',
+                display: 'flex',
+                flexDirection: { xs: 'column', md: 'row' },
+                alignItems: { xs: 'flex-start', md: 'center' },
+                justifyContent: 'space-between',
+                gap: 3,
+            }}
+        >
+            <Box sx={{ flex: 1 }}>
+                <Typography
+                    variant="h5"
+                    sx={{
+                        color: theme.palette.secondary.text,
+                        fontWeight: 600,
+                        mb: 1,
+                    }}
+                >
+                    Industry-Leading Thermal Performance
+                </Typography>
+
+                <Typography
+                    sx={{
+                        color: theme.palette.primary.text,
+                        fontSize: '1rem',
+                        lineHeight: 1.7,
+                    }}
+                >
+                    Engineered for optimal thermal resistance, Great Wall AAC Blocks boast an industry-leading thermal rating of 0.16 W/m²K. This high level of insulation ensures a stable indoor microclimate regardless of external weather extremes.
+                </Typography>
+            </Box>
+
+            <Box
+                sx={{
+                    minWidth: { xs: '100%', md: 205 },
+                    p: 2.5,
+                    borderRadius: 2,
+                    bgcolor: '#fff',
+                    textAlign: 'center',
+                    border: '1px solid #e3e3df',
+                }}
+            >
+                <Typography
+                    sx={{
+                        color: theme.palette.primary.main,
+                        fontSize: '0.75rem',
+                        fontWeight: 650,
+                        letterSpacing: 1.2,
+                        mb: 1,
+                    }}
+                >
+                    THERMAL CONDUCTIVITY
+                </Typography>
+
+                <Typography
+                    sx={{
+                        color: theme.palette.secondary.text,
+                        fontSize: '1.8rem',
+                        fontWeight: 700,
+                    }}
+                >
+                    0.16
+                </Typography>
+
+                <Typography
+                    sx={{
+                        color: theme.palette.primary.text,
+                        fontSize: '0.85rem',
+                    }}
+                >
+                    W/m²K
+                </Typography>
+            </Box>
+        </Box>
+
+    </Container>
+</Box>
+
 
 
             {/* Table */}

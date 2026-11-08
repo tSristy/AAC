@@ -1,9 +1,10 @@
 import './globals.css';
-import theme from '../theme/theme'; 
+import theme from '../theme/theme';
 import Navbar from '../components/layout/Navbar';
 import { ThemeProvider } from '@mui/material/styles';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import Footer from '@/components/layout/Footer';
+import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
 export const metadata = {
   title: "AAC Blocks & Panels",
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
             <Navbar />
             <main style={{ flex: 1 }}>{children}</main>
             <Footer />
+            <WhatsAppButton />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
