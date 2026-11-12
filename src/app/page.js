@@ -31,6 +31,7 @@ import imgClient4 from '../../public/server/partnerLogo/logo4.png';
 import imgClient5 from '../../public/server/partnerLogo/logo5.jpg';
 import imgClient6 from '../../public/server/partnerLogo/logo6.png';
 import imgClient7 from '../../public/server/partnerLogo/logo7.jpg';
+import imgClient8 from '../../public/server/partnerLogo/logo8.png';
 import imgClient9 from '../../public/server/partnerLogo/logo9.jpg';
 import imgClient10 from '../../public/server/partnerLogo/logo10.jpeg';
 import imgClient11 from '../../public/server/partnerLogo/logo11.jpeg';
@@ -215,6 +216,7 @@ export default function Home() {
     { id: 5, title: "Client 5", featured_image: imgClient5.src },
     { id: 6, title: "Client 6", featured_image: imgClient6.src },
     { id: 7, title: "Client 7", featured_image: imgClient7.src },
+    { id: 8, title: "Client 8", featured_image: imgClient8.src },
     { id: 9, title: "Client 9", featured_image: imgClient9.src },
     { id: 10, title: "Client 10", featured_image: imgClient10.src },
     { id: 11, title: "Client 11", featured_image: imgClient11.src },
