@@ -38,7 +38,8 @@ import imgClient11 from '../../public/server/partnerLogo/logo11.jpeg';
 import imgClient12 from '../../public/server/partnerLogo/logo12.jpeg';
 import imgClient13 from '../../public/server/partnerLogo/logo13.jpeg';
 
-
+import imgNews1 from '../../public/server/News/new1.jpeg';
+import imgNews2 from '../../public/server/News/new2.jpeg';
 
 import Image from "next/image";
 import NonStopCarousel from "@/components/ui/NonStopCarousel";
@@ -49,7 +50,6 @@ import SliderCarousel from "@/components/ui/SliderCarousel";
 /* ------------------------------------------------------------------ */
 const sectionTitleSx = { fontSize: { xs: '1.75rem', sm: '2.25rem', md: '3rem' }, lineHeight: 1.2 };
 const subTitleSx = { fontSize: { xs: '1rem', sm: '1.15rem', md: '1.25rem' } };
-const bodyTextSx = { fontSize: { xs: '1rem', md: '1.1rem' } };
 const sectionPx = { xs: 2, sm: 5, md: 10 };
 
 const afterBase = {
@@ -187,24 +187,17 @@ export default function Home() {
   const eventList = [
     {
       id: 1,
-      title: "Construction Expo 2024",
-      date: "March 15-17, 2024",
-      location: "Dhaka, Bangladesh",
-      featured_image: "https://i.guim.co.uk/img/static/sys-images/Media/Pix/pictures/2010/10/14/1287050043328/News-of-the-World-006.jpg?width=465&dpr=1&s=none&crop=none"
+      title: "World Habitat Day 2026",
+      date: "2026",
+      location: "Agargaon, Dhaka Bangladesh",
+      featured_image: imgNews1.src
     },
     {
       id: 2,
-      title: "Construction Expo 2025",
-      date: "April 25-27, 2025",
-      location: "Dhaka, Bangladesh",
-      featured_image: "https://i.guim.co.uk/img/static/sys-images/Media/Pix/pictures/2010/10/14/1287050043328/News-of-the-World-006.jpg?width=465&dpr=1&s=none&crop=none"
-    },
-    {
-      id: 3,
-      title: "Construction Expo 2026",
-      date: "November 01-05, 2026",
-      location: "Dhaka, Bangladesh",
-      featured_image: "https://i.guim.co.uk/img/static/sys-images/Media/Pix/pictures/2010/10/14/1287050043328/News-of-the-World-006.jpg?width=465&dpr=1&s=none&crop=none"
+      title: "Great Wall AAC Blocks & Panels at IAB Fair 2026",
+      date: "2026",
+      location: "IAB Fair Dhaka, Bangladesh",
+      featured_image: imgNews2.src
     }
   ]
 
