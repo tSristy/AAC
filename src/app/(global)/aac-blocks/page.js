@@ -102,7 +102,7 @@ export default function AacBlocks() {
         { id: 2, parameter: "Dry Density (kg/m³)", aacBlock: "650-750", panels: "550-650", redBricks: "1800-2000", concreteBlock: "2400-2500" },
         { id: 3, parameter: "Compressive Strength (N/mm²)", aacBlock: "> 4.5", panels: "> 4.5", redBricks: "> 10", concreteBlock: "> 15" },
         { id: 4, parameter: "Water Absorption", aacBlock: "Low", panels: "Low", redBricks: "High", concreteBlock: "High" },
-        { id: 5, parameter: "Thermal Conductivity (W/m·K)", aacBlock: "0.16", panels: "0.16", redBricks: "0.81", concreteBlock: "0.51" },
+        { id: 5, parameter: "Thermal Conductivity (W/m·K)", aacBlock: "0.14", panels: "0.14", redBricks: "0.81", concreteBlock: "0.51" },
         { id: 6, parameter: "Sound Reduction Index", aacBlock: "43~45 dB", panels: "43 dB", redBricks: "38~40 dB", concreteBlock: "38~40 dB" },
         { id: 7, parameter: "Fire Resistance", aacBlock: "4~6 Hours", panels: "4 Hours", redBricks: "1.5 Hours", concreteBlock: "2 Hours" },
         { id: 8, parameter: "Speed of Installation", aacBlock: "35 m³/day (1 mason + 2 helpers)", panels: "70-80 m³/day", redBricks: "10 m³/day", concreteBlock: "18 m³/day" },
@@ -548,7 +548,7 @@ AAC Blocks are a lightweight, pre-fabricated building material that has gained i
                         lineHeight: 1.7,
                     }}
                 >
-                    Engineered for optimal thermal resistance, Great Wall AAC Blocks boast an industry-leading thermal rating of 0.16 W/m²K. This high level of insulation ensures a stable indoor microclimate regardless of external weather extremes.
+                    Engineered for optimal thermal resistance, Great Wall AAC Blocks boast an industry-leading thermal rating of 0.14 W/m²K. This high level of insulation ensures a stable indoor microclimate regardless of external weather extremes.
                 </Typography>
             </Box>
 
@@ -581,7 +581,7 @@ AAC Blocks are a lightweight, pre-fabricated building material that has gained i
                         fontWeight: 700,
                     }}
                 >
-                    0.16
+                    0.14
                 </Typography>
 
                 <Typography
@@ -679,7 +679,7 @@ AAC Blocks are a lightweight, pre-fabricated building material that has gained i
                                         { parameter: 'Density', specification: '650-750 kg/m³' },
                                         { parameter: 'Compressive Strength', specification: '>4.5 N/mm² (MPa)' },
                                         { parameter: 'Dry Shrinkage', specification: '<0.02%' },
-                                        { parameter: 'Thermal Conductivity', specification: '0.16 W/m-K' },
+                                        { parameter: 'Thermal Conductivity', specification: '0.14 W/m-K' },
                                         { parameter: 'Fire Resistance', specification: '4-6 Hours' },
                                         { parameter: 'Sound Reduction Index', specification: '43-45 dB' }
                                     ].map((item, index) => (
