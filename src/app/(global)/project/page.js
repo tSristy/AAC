@@ -49,7 +49,7 @@ export default function ProjectPage() {
         <Box sx={{ py: 10 }}>
             <Container maxWidth="lg">
                 <Typography variant="h3" sx={{ mb: 5, fontSize: { xs: '2rem', md: '2.8rem' }, color: theme.palette.secondary.text, fontWeight: 600, textAlign: 'center' }}>
-                    Technical Specifications
+                    Projects
                 </Typography>
 
 
