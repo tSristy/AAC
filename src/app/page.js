@@ -26,7 +26,7 @@ import hc from '../../public/server/hc1.png';
 
 import imgClient1 from '../../public/server/partnerLogo/logo1.png';
 import imgClient2 from '../../public/server/partnerLogo/logo2.jpg';
-import imgClient3 from '../../public/server/partnerLogo/logo3.png';
+// import imgClient3 from '../../public/server/partnerLogo/logo3.png';
 import imgClient4 from '../../public/server/partnerLogo/logo4.png';
 import imgClient5 from '../../public/server/partnerLogo/logo5.jpg';
 import imgClient6 from '../../public/server/partnerLogo/logo6.png';
@@ -204,7 +204,7 @@ export default function Home() {
   const [clientList, setClientList] = useState([
     { id: 1, title: "Client 1", featured_image: imgClient1.src },
     { id: 2, title: "Client 2", featured_image: imgClient2.src },
-    { id: 3, title: "Client 3", featured_image: imgClient3.src },
+    // { id: 3, title: "Client 3", featured_image: imgClient3.src },
     { id: 4, title: "Client 4", featured_image: imgClient4.src },
     { id: 5, title: "Client 5", featured_image: imgClient5.src },
     { id: 6, title: "Client 6", featured_image: imgClient6.src },

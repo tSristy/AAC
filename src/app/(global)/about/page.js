@@ -25,6 +25,7 @@ import imgCharu from '../../../../public/server/aboutIcon/Charu.png';
 import imgGW from '../../../../public/server/aboutIcon/GW.png';
 import imgHiTech from '../../../../public/server/aboutIcon/Hitech.png';
 import imgShips from '../../../../public/server/aboutIcon/Ships.png';
+import imgSteel from '../../../../public/server/aboutIcon/Steel.png';
 
 const quickFacts = [
   { icon: <LocationOnIcon fontSize="medium" />, label: 'Plant location', value: 'Kholapara, Kaliganj, Gazipur, Bangladesh' },
@@ -47,7 +48,7 @@ const journeyMilestones = [
       'A premium sanitary ware brand launched in technical collaboration with COTTO (Thailand), bringing international standards to the category.',
   },
   {
-    year: 'Year TBD',
+    year: '2026',
     title: 'Great Wall AAC Block & Panels',
     description:
       'Entry into Autoclaved Aerated Concrete, with a dedicated plant in Kholapara, Kaliganj, Gazipur built on Swedish product engineering and Chinese manufacturing technology.',
@@ -82,7 +83,7 @@ const groupCompanies = [
   },
   {
     id: 3,
-    icon: imgBlock.src,
+    icon: imgSteel.src,
     name: "Great Wall Steel Building Ind. Ltd.",
     description: "Great Wall Steel Building Ind. Ltd. is a leading provider of Pre-Engineered Building (PEB) solutions in Bangladesh. The company offers end-to-end steel building services, including design, manufacturing, and installation of industrial warehouses, factories, and commercial high-rise structures."
   },
