@@ -41,9 +41,6 @@ export default function ContactPage() {
                 <Box>
                   <Typography sx={{ fontWeight: 600 }}>Head Office</Typography>
                   <Typography sx={{ fontSize: '1rem' }}>Navana Zohura Square (12th Floor), 28, Kazi Nazrul Islam Avenue, Banglamotor, Dhaka-1000</Typography>
-                    28, Kazi Nazrul Islam Avenue
-                    Bangla Motor
-                    Dhaka 1205</Typography>
                 </Box>
                 <Box>
                   <Typography sx={{ textAlign: 'right', fontWeight: 600 }}>Factory</Typography>
@@ -63,7 +60,7 @@ export default function ContactPage() {
 
           <Grid size={{ xs: 12, sm: 6 }}>
             <Box component="form" noValidate autoComplete="off">
-              <Typography variant='overline' sx={{ mb: 2, color: theme.palette.primary.main }}>Please provide your full name</Typography>
+              <Typography variant='overline' sx={{ fontWeight: 600, mb: 2, color: theme.palette.primary.main }}>Please provide your details</Typography>
               <TextField
                 label="Name"
                 variant="outlined"
@@ -109,7 +106,7 @@ export default function ContactPage() {
 
               <Box sx={{ mt: 5 }}>
                 <Button variant='outlined' sx={{ borderRadius: 20, borderColor: theme.palette.primary.main, color: theme.palette.primary.main, '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
-                  View More
+                  Send
                 </Button>
               </Box>
             </Box>
