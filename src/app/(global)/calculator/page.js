@@ -49,7 +49,7 @@ export default function CalculatorPage() {
                         fontSize: { xs: '1.8rem', sm: '2.3rem', md: '3rem' }
                     }}
                 >
-                    AAC Blocks Calculator
+                    AAC Calculator
                 </Typography>
 
                 <Grid

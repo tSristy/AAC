@@ -38,7 +38,7 @@ export default function Reports() {
                             color: theme.palette.secondary.text,
                         }}
                     >
-                        Reports
+                        Test Reports
                     </Typography>
 
                     <Typography
