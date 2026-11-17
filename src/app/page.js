@@ -288,7 +288,7 @@ export default function Home() {
       <Box sx={{ width: '100%', overflow: 'hidden' }}>
         <Stack direction={{ xs: 'column', sm: 'row' }} sx={{ height: { xs: '900px', sm: '350px', md: '550px' } }}>
           {productList.map((product) => (
-            <Box key={product.id} sx={{
+            <Box key={product.id} onClick={() => router.push(product.url)} sx={{
               flex: 1,
               position: 'relative',
               backgroundImage: `url(${product.img_url})`,
@@ -306,7 +306,7 @@ export default function Home() {
                 height: '100%', bgcolor: 'rgba(0, 0, 0, 0.4)', color: 'white', p: 2
               }}>
                 <Typography variant='h4' sx={{ textAlign: 'center', fontWeight: '550', fontSize: { xs: '1.6rem', sm: '1.15rem', md: '2.125rem' } }}>{product.name}</Typography>
-                <Button variant='outlined' onClick={() => router.push(product.url)} sx={{ borderRadius: 20, borderColor: 'white', color: 'white', fontSize: { sm: '0.75rem', md: '0.875rem' }, '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
+                <Button variant='outlined' sx={{ borderRadius: 20, borderColor: 'white', color: 'white', fontSize: { sm: '0.75rem', md: '0.875rem' }, '&:hover': { borderColor: 'transparent', bgcolor: theme.palette.primary.main, color: 'white' } }}>
                   Know more
                 </Button>
               </Stack>

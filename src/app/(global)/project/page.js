@@ -12,8 +12,8 @@ const HAIRLINE = '#e5e3e0';
 
 const projectSheets = [
     {
-        key: 'govermental',
-        label: 'Govermental',
+        key: 'government',
+        label: 'Government',
         rows: [
             ,
         ],
@@ -28,9 +28,9 @@ const projectSheets = [
         key: 'developer',
         label: 'Developer',
         rows: [
-            { id: 1, name: 'Chyabithi', img: imgPro1.src },
-            { id: 2, name: 'Dreamview Real Estate', img: imgPro3.src },
-            { id: 3, name: 'Real Estate', img: imgPro2.src }
+            { id: 1, name: 'Heaven Chayabathi', location: 'Mohammadpur, Dhaka', img: imgPro1.src },
+            { id: 2, name: 'Dream View Real Estate', location: 'Ati Bazar, Keraniganj, Dhaka', img: imgPro3.src },
+            { id: 3, name: 'PCL Center', location: 'Ati Bhawal, Keraniganj, Dhaka', img: imgPro2.src }
         ],
     },
     {
@@ -116,17 +116,29 @@ export default function ProjectPage() {
                                         borderRadius: 2,
                                     }}
                                 />
+                                <Box>
 
-                                <Typography
-                                    sx={{
-                                        fontSize: { xs: '1rem', md: '1.1rem' },
-                                        fontWeight: 500,
-                                        textAlign: { xs: 'left', lg: 'center' },
-                                    }}
-                                    color={theme.palette.primary.text}
-                                >
-                                    {row.name}
-                                </Typography>
+                                    <Typography
+                                        sx={{
+                                            fontSize: { xs: '1rem', md: '1.2rem' },
+                                            fontWeight: 500,
+                                            textAlign: { xs: 'left', lg: 'center' },
+                                        }}
+                                        color={theme.palette.primary.text}
+                                    >
+                                        {row.name}
+                                    </Typography>
+                                    <Typography
+                                        sx={{
+                                            color: theme.palette.text.secondary,
+                                            fontSize: { xs: '0.9rem', md: '1rem' },
+                                            textAlign: { xs: 'left', lg: 'center' },
+                                        }}
+                                        color={theme.palette.text.secondary}
+                                    >
+                                        {row.location}
+                                    </Typography>
+                                </Box>
                             </Stack>
                         </Grid>
                     ))}
