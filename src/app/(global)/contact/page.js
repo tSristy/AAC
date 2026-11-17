@@ -40,7 +40,7 @@ export default function ContactPage() {
               <Stack direction="row" sx={{ my: 4, justifyContent: 'space-between' }}>
                 <Box>
                   <Typography sx={{ fontWeight: 600 }}>Head Office</Typography>
-                  <Typography sx={{ fontSize: '1rem' }}>Navana Zohura Square (12th Floor), 28, Kazi Nazrul Islam Avenue, Banglamotor, Dhaka-1000</Typography>
+                  <Typography sx={{ fontSize: '1rem' }}>Navana Zohura Square (12th Floor), 28 Kazi Nazrul Islam Avenue, Banglamotor, Dhaka-1000</Typography>
                 </Box>
                 <Box>
                   <Typography sx={{ textAlign: 'right', fontWeight: 600 }}>Factory</Typography>
